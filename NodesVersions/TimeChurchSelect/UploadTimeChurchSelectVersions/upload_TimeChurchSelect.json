@@ -1,0 +1,22 @@
+{
+  "-OVUjiE-m_qAWCwA2zw4": {
+    "id": "-OVUDIEhXpGKC0fBVHOu",
+    "ChurchRange": "0-1",
+    "Enable": true
+  },
+  "-OVUjiE-m_qAWCwA2zw5": {
+    "id": "-OVUDIEialJoXc1ENUyB",
+    "ChurchRange": "1-5",
+    "Enable": true
+  },
+  "-OVUjiE-m_qAWCwA2zw6": {
+    "id": "-OVUDIEialJoXc1ENUyC",
+    "ChurchRange": "5-10",
+    "Enable": true
+  },
+  "-OVUjiE-m_qAWCwA2zw7": {
+    "id": "-OVUDIEialJoXc1ENUyD",
+    "ChurchRange": "10+",
+    "Enable": true
+  }
+}
