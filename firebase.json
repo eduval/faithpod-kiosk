@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "kioskproject-reactwelcome/build",
     "ignore": [
       "firebase.json",
       "**/.*",

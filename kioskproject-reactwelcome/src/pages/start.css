@@ -1,0 +1,90 @@
+/* Full viewport container with sunset background */
+.start-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Fullscreen background image */
+.start-image2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Transparent background box at center */
+.start-start {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+/* Inner white box */
+.start-content-box {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 30px 20px;
+  width: 90%;
+  height: 90%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Logo */
+.start-image1 {
+  width: 110px;
+  height: auto;
+  margin: 0 auto 10px;
+  object-fit: contain;
+}
+
+/* Headline text */
+.start-text2 {
+  font-size: 28px;
+  font-family: "Inria Sans", sans-serif;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+/* Subtext */
+.start-text1 {
+  font-size: 18px;
+  font-family: "Inria Serif", serif;
+  font-weight: 400;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+/* Start button */
+.start-frame9 {
+  background-color: #000;
+  color: #fff;
+  font-size: 22px;
+  font-family: "Inria Sans", sans-serif;
+  font-weight: 700;
+  padding: 14px 60px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0 auto;
+}
+
+.start-frame9:hover {
+  background-color: #222;
+}
