@@ -1,17 +1,37 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { useHistory } from 'react-router-dom'; // ✅ v5 routing
+import { useHistory } from 'react-router-dom'; 
+import { getDatabase, ref, set } from 'firebase/database';
+import firebaseApp from '../firebase'; // adjust path if needed
 import './frame2.css';
 
 const Frame2 = () => {
-  const history = useHistory(); // ✅ initialize history
+  const history = useHistory();
   const [churchSelection, setChurchSelection] = useState(null);
   const [ageSelection, setAgeSelection] = useState(null);
+  const db = getDatabase(firebaseApp);
 
   const handleChurchClick = (value) => setChurchSelection(value);
   const handleAgeClick = (value) => setAgeSelection(value);
 
   const isNextEnabled = churchSelection && ageSelection;
+
+  const saveSelectionsAndContinue = () => {
+    const userId = 'sessionTest001'; // replace with dynamic ID if available
+
+    set(ref(db, `userSessions/${userId}/frame2`), {
+      churchSelection,
+      ageSelection,
+      timestamp: new Date().toISOString(),
+    })
+    .then(() => {
+      history.push('/page3');
+    })
+    .catch((error) => {
+      console.error('Error saving selections:', error);
+      alert('Failed to save data. Please try again.');
+    });
+  };
 
   const churchOptions = ['0 - 1', '1 - 5', '5 - 10', '10+'];
   const ageOptions = ['0 - 12', '13 - 25', '26 - 50', '51+'];
@@ -69,7 +89,7 @@ const Frame2 = () => {
           <button
             className="frame2-next"
             disabled={!isNextEnabled}
-            onClick={() => history.push('/page3')} 
+            onClick={saveSelectionsAndContinue}
           >
             Next
           </button>

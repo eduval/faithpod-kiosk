@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useHistory } from 'react-router-dom';
+import { getDatabase, ref, set } from 'firebase/database';
+import firebaseApp from '../firebase';  // adjust path if needed
 import './frame3.css';
 
 const feelings = [
@@ -24,6 +26,7 @@ const focusOptions = [
 
 const Frame3 = () => {
   const history = useHistory();
+  const db = getDatabase(firebaseApp);
 
   const [selectedFeeling, setSelectedFeeling] = useState('');
   const [selectedFocus, setSelectedFocus] = useState('');
@@ -32,6 +35,23 @@ const Frame3 = () => {
   useEffect(() => {
     setCanContinue(selectedFeeling !== '' && selectedFocus !== '');
   }, [selectedFeeling, selectedFocus]);
+
+  const saveSelectionsAndContinue = () => {
+    const userId = 'sessionTest001'; // replace with dynamic ID if you have one
+
+    set(ref(db, `userSessions/${userId}/frame3`), {
+      feeling: selectedFeeling,
+      focus: selectedFocus,
+      timestamp: new Date().toISOString(),
+    })
+      .then(() => {
+        history.push('/page4');
+      })
+      .catch((error) => {
+        console.error('Error saving data:', error);
+        alert('Failed to save data. Please try again.');
+      });
+  };
 
   return (
     <div className="frame3-container">
@@ -80,7 +100,7 @@ const Frame3 = () => {
         <button
           className={`next-btn ${canContinue ? 'enabled' : ''}`}
           disabled={!canContinue}
-          onClick={() => history.push('/page4')}
+          onClick={saveSelectionsAndContinue}
         >
           Next
         </button>
