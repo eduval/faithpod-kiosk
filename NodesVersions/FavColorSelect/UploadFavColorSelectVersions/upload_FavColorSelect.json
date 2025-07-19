@@ -1,0 +1,50 @@
+{
+  "-OVUzYrkHfqb9BdTw7JE": {
+    "id": "-OVUzYrkHfqb9BdTw7JE",
+    "Color": "Blue",
+    "Enable": true,
+    "HEX": "#0000FF"
+  },
+  "-OVUzYrlm8dqxxl8ZC_3": {
+    "id": "-OVUzYrlm8dqxxl8ZC_3",
+    "Color": "Green",
+    "Enable": true,
+    "HEX": "#00FF00"
+  },
+  "-OVUzYrlm8dqxxl8ZC_4": {
+    "id": "-OVUzYrlm8dqxxl8ZC_4",
+    "Color": "Orange",
+    "Enable": true,
+    "HEX": "#FFA500"
+  },
+  "-OVUzYrlm8dqxxl8ZC_5": {
+    "id": "-OVUzYrlm8dqxxl8ZC_5",
+    "Color": "Pink",
+    "Enable": true,
+    "HEX": "#FFC0CB"
+  },
+  "-OVUzYrlm8dqxxl8ZC_6": {
+    "id": "-OVUzYrlm8dqxxl8ZC_6",
+    "Color": "Purple",
+    "Enable": true,
+    "HEX": "#800080"
+  },
+  "-OVUzYrlm8dqxxl8ZC_7": {
+    "id": "-OVUzYrlm8dqxxl8ZC_7",
+    "Color": "Red",
+    "Enable": true,
+    "HEX": "#FF0000"
+  },
+  "-OVUzYrlm8dqxxl8ZC_8": {
+    "id": "-OVUzYrlm8dqxxl8ZC_8",
+    "Color": "White",
+    "Enable": true,
+    "HEX": "#FFDAB9"
+  },
+  "-OVUzYrlm8dqxxl8ZC_9": {
+    "id": "-OVUzYrlm8dqxxl8ZC_9",
+    "Color": "Yellow",
+    "Enable": true,
+    "HEX": "#FFFF00"
+  }
+}

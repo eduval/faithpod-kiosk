@@ -1,0 +1,62 @@
+{
+  "Altar": {
+    "Enable": true,
+    "Mood_Classifier": "Ok"
+  },
+  "Blessing": {
+    "Enable": false,
+    "Mood_Classifier": "Happy"
+  },
+  "Candle": {
+    "Enable": true,
+    "Mood_Classifier": "Sad"
+  },
+  "Chapel": {
+    "Enable": false,
+    "Mood_Classifier": "Ok"
+  },
+  "Grace": {
+    "Enable": true,
+    "Mood_Classifier": "Happy"
+  },
+  "Harmony": {
+    "Enable": false,
+    "Mood_Classifier": "Happy"
+  },
+  "Haven": {
+    "Enable": true,
+    "Mood_Classifier": "Ok"
+  },
+  "Jubilant": {
+    "Enable": true,
+    "Mood_Classifier": "Happy"
+  },
+  "Lament": {
+    "Enable": false,
+    "Mood_Classifier": "Sad"
+  },
+  "Pew": {
+    "Enable": false,
+    "Mood_Classifier": "Ok"
+  },
+  "Radiance": {
+    "Enable": true,
+    "Mood_Classifier": "Happy"
+  },
+  "Reverence": {
+    "Enable": true,
+    "Mood_Classifier": "Sad"
+  },
+  "Sanctuary": {
+    "Enable": true,
+    "Mood_Classifier": "Ok"
+  },
+  "Silence": {
+    "Enable": false,
+    "Mood_Classifier": "Sad"
+  },
+  "Solace": {
+    "Enable": true,
+    "Mood_Classifier": "Sad"
+  }
+}
