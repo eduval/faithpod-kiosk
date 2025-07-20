@@ -1,12 +1,41 @@
-import React from 'react';
+// src/pages/start.js
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useHistory } from 'react-router-dom';
 import './start.css';
 
+import { startWebcam, capturePicture, detectMood } from '../moodDetector';
+
 const Start = () => {
   const history = useHistory();
 
-  const handleStart = () => {
+  useEffect(() => {
+    // Start webcam as soon as this component mounts
+    startWebcam().catch((err) => {
+      console.error('Error starting webcam:', err);
+    });
+  }, []);
+
+  const handleStart = async () => {
+    try {
+      const canvas = capturePicture();
+      const expressions = await detectMood(canvas);
+
+      if (expressions) {
+        const topMood = Object.entries(expressions).reduce((a, b) =>
+          a[1] > b[1] ? a : b
+        );
+        console.log(
+          `Detected mood: ${topMood[0]} (${(topMood[1] * 100).toFixed(2)}%)`
+        );
+      } else {
+        console.log('No face detected');
+      }
+    } catch (error) {
+      console.error('Mood detection failed:', error);
+    }
+
+    // Navigate to thank you page regardless of mood detection outcome
     history.push('/thankyou');
   };
 
