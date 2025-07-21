@@ -14,4 +14,15 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
+export async function getServerTime() {
+  try {
+    const response = await fetch('https://ited.org.ec/getServerTime.php');
+    const data = await response.json();
+    return data.serverTime;
+  } catch (error) {
+    console.error("Error getting server time:", error);
+    return new Date().toISOString(); // fallback
+  }
+}
+
 export default app;
