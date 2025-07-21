@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useHistory } from 'react-router-dom';
 import { getDatabase, ref, set } from 'firebase/database';
-import firebaseApp from '../firebase'; // adjust path as needed
+import firebaseApp, { getServerTime } from '../firebase';
 import './frame4.css';
 
 const Frame4 = () => {
@@ -15,22 +15,24 @@ const Frame4 = () => {
     setActiveOption(option);
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (!activeOption) return;
 
     const userId = 'sessionTest001'; // Replace with actual dynamic user/session ID if available
 
-    set(ref(db, `userSessions/${userId}/frame4`), {
-      experienceChoice: activeOption,
-      timestamp: new Date().toISOString(),
-    })
-      .then(() => {
-        history.push('/start');
-      })
-      .catch((error) => {
-        console.error('Error saving experience choice:', error);
-        alert('Failed to save your selection. Please try again.');
+    try {
+      const serverTime = await getServerTime();
+
+      await set(ref(db, `userSessions/${userId}/frame4`), {
+        experienceChoice: activeOption,
+        timestamp: serverTime
       });
+
+      history.push('/start');
+    } catch (error) {
+      console.error('Error saving experience choice:', error);
+      alert('Failed to save your selection. Please try again.');
+    }
   };
 
   return (
