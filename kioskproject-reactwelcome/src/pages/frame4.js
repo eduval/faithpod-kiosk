@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+// src/pages/Frame4.js
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useHistory } from 'react-router-dom';
 import { getDatabase, ref, set } from 'firebase/database';
@@ -8,22 +9,36 @@ import './frame4.css';
 const Frame4 = () => {
   const history = useHistory();
   const db = getDatabase(firebaseApp);
-
   const [activeOption, setActiveOption] = useState(null);
+  const [sessionId, setSessionId] = useState(null);
+
+  // 🔒 Sanitize for Firebase path safety
+  const sanitizeForFirebase = (str) => str.replace(/[:.#$/\[\]]/g, '-');
+
+  // 📦 Get or create dynamic session ID
+  useEffect(() => {
+    let id = localStorage.getItem('sessionId');
+    if (!id) {
+      const raw = new Date().toISOString();
+      id = 'session_' + sanitizeForFirebase(raw);
+      localStorage.setItem('sessionId', id);
+    } else {
+      id = sanitizeForFirebase(id); // re-sanitize in case
+    }
+    setSessionId(id);
+  }, []);
 
   const handleOptionClick = (option) => {
     setActiveOption(option);
   };
 
   const handleNext = async () => {
-    if (!activeOption) return;
-
-    const userId = 'sessionTest001'; // Replace with actual dynamic user/session ID if available
+    if (!activeOption || !sessionId) return;
 
     try {
       const serverTime = await getServerTime();
 
-      await set(ref(db, `userSessions/${userId}/frame4`), {
+      await set(ref(db, `userSessions/${sessionId}/frame4`), {
         experienceChoice: activeOption,
         timestamp: serverTime
       });
@@ -49,7 +64,7 @@ const Frame4 = () => {
           onClick={() => handleOptionClick('Video')}
           role="button"
           tabIndex={0}
-          onKeyDown={e => e.key === 'Enter' && handleOptionClick('Video')}
+          onKeyDown={(e) => e.key === 'Enter' && handleOptionClick('Video')}
         >
           <span>Video</span>
           <div>
@@ -63,7 +78,7 @@ const Frame4 = () => {
           onClick={() => handleOptionClick('Games')}
           role="button"
           tabIndex={0}
-          onKeyDown={e => e.key === 'Enter' && handleOptionClick('Games')}
+          onKeyDown={(e) => e.key === 'Enter' && handleOptionClick('Games')}
         >
           <span>Games</span>
           <img src="/external/arcticonsgames4157-4f5.svg" alt="Games Icon" />
@@ -74,7 +89,7 @@ const Frame4 = () => {
           onClick={() => handleOptionClick('Bible Quiz')}
           role="button"
           tabIndex={0}
-          onKeyDown={e => e.key === 'Enter' && handleOptionClick('Bible Quiz')}
+          onKeyDown={(e) => e.key === 'Enter' && handleOptionClick('Bible Quiz')}
         >
           <span>Bible Quiz</span>
           <img src="/external/arcticonsbible4148-wgz.svg" alt="Bible Icon" />
@@ -85,7 +100,7 @@ const Frame4 = () => {
           onClick={() => handleOptionClick('Mood detection')}
           role="button"
           tabIndex={0}
-          onKeyDown={e => e.key === 'Enter' && handleOptionClick('Mood detection')}
+          onKeyDown={(e) => e.key === 'Enter' && handleOptionClick('Mood detection')}
         >
           <span>
             Mood detection
@@ -112,6 +127,7 @@ const Frame4 = () => {
           <div className="frame4-frame10" onClick={() => history.goBack()}>
             Back
           </div>
+
           <div
             className="frame4-frame9"
             onClick={handleNext}

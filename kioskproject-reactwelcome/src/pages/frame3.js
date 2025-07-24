@@ -1,27 +1,20 @@
+// src/pages/Frame3.js
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useHistory } from 'react-router-dom';
 import { getDatabase, ref, set } from 'firebase/database';
-import firebaseApp from '../firebase';  // adjust path if needed
+import firebaseApp from '../firebase';
 import './frame3.css';
 
 const feelings = [
-  '😌 Peaceful',
-  '😵‍💫 Overwhelmed',
-  '🙏🏻 Grateful',
-  '✨ Hopeful',
-  '🤔 Confused',
-  '🔍 Seeking',
-  '🥺 Troubled',
-  '☺️ Joyful',
+  '😌 Peaceful', '😵‍💫 Overwhelmed', '🙏🏻 Grateful',
+  '✨ Hopeful', '🤔 Confused', '🔍 Seeking',
+  '🥺 Troubled', '☺️ Joyful',
 ];
 
 const focusOptions = [
-  'Peace & Reflexion',
-  'Love & Encouragement',
-  'Bible Study',
-  'Worship & Music',
-  'Nature & Gratitude',
+  'Peace & Reflexion', 'Love & Encouragement',
+  'Bible Study', 'Worship & Music', 'Nature & Gratitude',
 ];
 
 const Frame3 = () => {
@@ -31,19 +24,37 @@ const Frame3 = () => {
   const [selectedFeeling, setSelectedFeeling] = useState('');
   const [selectedFocus, setSelectedFocus] = useState('');
   const [canContinue, setCanContinue] = useState(false);
+  const [sessionId, setSessionId] = useState(null);
+
+  // 🔐 Sanitize function to make ID Firebase-safe
+  const sanitizeForFirebase = (str) => str.replace(/[:.#$/\[\]]/g, '-');
+
+  useEffect(() => {
+    let id = localStorage.getItem('sessionId');
+    if (!id) {
+      const raw = new Date().toISOString();
+      id = 'session_' + sanitizeForFirebase(raw);
+      localStorage.setItem('sessionId', id);
+    } else {
+      id = sanitizeForFirebase(id); // Re-sanitize just in case
+    }
+    setSessionId(id);
+  }, []);
 
   useEffect(() => {
     setCanContinue(selectedFeeling !== '' && selectedFocus !== '');
   }, [selectedFeeling, selectedFocus]);
 
   const saveSelectionsAndContinue = () => {
-    const userId = 'sessionTest001'; // replace with dynamic ID if you have one
+    if (!sessionId) return;
 
-    set(ref(db, `userSessions/${userId}/frame3`), {
+    const data = {
       feeling: selectedFeeling,
       focus: selectedFocus,
       timestamp: new Date().toISOString(),
-    })
+    };
+
+    set(ref(db, `userSessions/${sessionId}/frame3`), data)
       .then(() => {
         history.push('/page4');
       })
@@ -55,9 +66,7 @@ const Frame3 = () => {
 
   return (
     <div className="frame3-container">
-      <Helmet>
-        <title>exported project</title>
-      </Helmet>
+      <Helmet><title>How Are You Feeling?</title></Helmet>
 
       <h1 className="main-title">Tell us about yourself</h1>
       <p className="sub-title">This will help us personalize your experience</p>
@@ -66,9 +75,12 @@ const Frame3 = () => {
       <div className="button-grid">
         {feelings.map((feeling, idx) => (
           <div
-            className={`button ${selectedFeeling === feeling ? 'selected' : ''}`}
             key={idx}
+            className={`button ${selectedFeeling === feeling ? 'selected' : ''}`}
             onClick={() => setSelectedFeeling(feeling)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === 'Enter' && setSelectedFeeling(feeling)}
           >
             {feeling}
           </div>
@@ -79,9 +91,12 @@ const Frame3 = () => {
       <div className="button-grid">
         {focusOptions.map((option, idx) => (
           <div
-            className={`button ${selectedFocus === option ? 'selected' : ''}`}
             key={idx}
+            className={`button ${selectedFocus === option ? 'selected' : ''}`}
             onClick={() => setSelectedFocus(option)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === 'Enter' && setSelectedFocus(option)}
           >
             {option}
           </div>
@@ -89,8 +104,7 @@ const Frame3 = () => {
       </div>
 
       <p className="disclaimer">
-        Your information is only used to personalize your worship experience
-        and will not be shared outside this church.
+        Your information is only used to personalize your worship experience and will not be shared outside this church.
       </p>
 
       <div className="nav-buttons">
