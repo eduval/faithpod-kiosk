@@ -8,14 +8,14 @@ export async function loadModels() {
     await faceapi.nets.tinyFaceDetector.loadFromUri('/models');
     await faceapi.nets.faceExpressionNet.loadFromUri('/models');
     modelsLoaded = true;
-    console.log('Models loaded ✅');
+    console.log('Models loaded');
   }
 }
 
 export const video = document.createElement('video');
 video.setAttribute('playsinline', true);
 video.setAttribute('muted', true);
-video.style.display = 'none'; 
+video.style.display = 'none';
 document.body.appendChild(video);
 
 export async function startWebcam() {
@@ -61,20 +61,56 @@ export async function detectMood(canvas) {
   }
 }
 
-// Updated to return the detected mood instead of alert
+//  analyzeMood with 3 attempts, averaging, fallback
 export async function analyzeMood() {
-  if (!modelsLoaded) {
-    await loadModels();
-  }
-  const canvas = capturePicture();
-  const expressions = await detectMood(canvas);
+  try {
+    if (!modelsLoaded) {
+      await loadModels();
+    }
 
-  if (expressions) {
-    const topMood = Object.entries(expressions).reduce((a, b) =>
+    const moodResults = [];
+    const maxAttempts = 3;
+
+    for (let i = 0; i < maxAttempts; i++) {
+      const canvas = capturePicture();
+      const expressions = await detectMood(canvas);
+
+      if (expressions) {
+        moodResults.push(expressions);
+      } else {
+        console.warn(`No face detected on attempt ${i + 1}`);
+      }
+
+      // Wait 1 second before next capture
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+    }
+
+    if (moodResults.length === 0) {
+      console.warn('No face detected in any of the 3 attempts. Defaulting to happy.');
+      return { mood: 'happy', confidence: 1.0 };
+    }
+
+    // Combine and average mood values
+    const summed = {};
+    moodResults.forEach((expressions) => {
+      for (const [key, value] of Object.entries(expressions)) {
+        summed[key] = (summed[key] || 0) + value;
+      }
+    });
+
+    const averages = {};
+    for (const [key, total] of Object.entries(summed)) {
+      averages[key] = total / moodResults.length;
+    }
+
+    const topMood = Object.entries(averages).reduce((a, b) =>
       a[1] > b[1] ? a : b
     );
+
     return { mood: topMood[0], confidence: topMood[1] };
-  } else {
-    return null;
+
+  } catch (error) {
+    console.error('Error during mood analysis:', error);
+    return { mood: 'happy', confidence: 1.0 };
   }
 }
