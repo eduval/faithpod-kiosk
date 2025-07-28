@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Philips Hue Controller</title>
+  <link rel="stylesheet" href="style-kiosk.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Philips Hue Controller</h1>
+    <p class="subtitle">Control lights</p>
+
+    <!-- Global controls -->
+    <div class="controls-grid">
+      <!-- Power control (ALL lights) -->
+      <div class="control-card">
+        <h2>Power (All)</h2>
+        <div class="button-group">
+          <button id="on-btn">ON</button>
+          <button id="off-btn">OFF</button>
+        </div>
+      </div>
+
+      <!-- Brightness control (ALL lights) -->
+      <div class="control-card">
+        <label for="brightness-slider"><h2>Brightness (All)</h2></label>
+        <input type="range" min="1" max="100" value="100" class="slider" id="brightness-slider">
+      </div>
+    </div>
+
+    <!-- Individual light controls -->
+    <h2 style="margin-top: 40px;">Individual Light Controls</h2>
+    <div class="controls-grid" id="color-controls">
+      <!-- Will be populated by app.js -->
+    </div>
+
+    <!-- Status -->
+    <p id="status-message">Ready</p>
+
+    <!-- Script -->
+    <script src="app-kiosk.js"></script>
+  </div>
+</body>
+</html>
