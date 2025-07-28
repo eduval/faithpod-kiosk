@@ -1,0 +1,185 @@
+{
+  "sessionTest001": {
+    "Age Select": 3,
+    "ExperienceOpSelect": 2,
+    "FavColorSelect": 4,
+    "IdWordSelect": "Radiance",
+    "IntentionSelect": 2,
+    "TimeChurchSelect": 1,
+    "createdAt": "2025-07-14T10:00:00Z",
+    "frame2": {
+      "ageSelection": "13 - 25",
+      "churchSelection": "0 - 1",
+      "timestamp": "2025-07-24T04:17:58.425Z"
+    },
+    "frame3": {
+      "feeling": "😌 Peaceful",
+      "focus": "Bible Study",
+      "timestamp": "2025-07-24T04:18:03.860Z"
+    },
+    "frame4": {
+      "experienceChoice": "Video",
+      "timestamp": "2025-07-24T04:18:12.845Z"
+    }
+  },
+  "session_2025-07-24T05-38-19-992Z": {
+    "frame2": {
+      "ageSelection": "13 - 25",
+      "churchSelection": "0 - 1",
+      "timestamp": "2025-07-24T05:38:23.170Z"
+    },
+    "frame3": {
+      "feeling": "😌 Peaceful",
+      "focus": "Love & Encouragement",
+      "timestamp": "2025-07-24T05:38:26.986Z"
+    },
+    "frame4": {
+      "experienceChoice": "Games",
+      "timestamp": "2025-07-24T05:38:30.383Z"
+    }
+  },
+  "session_2025-07-24T05-38-56-977Z": {
+    "frame2": {
+      "ageSelection": "13 - 25",
+      "churchSelection": "0 - 1",
+      "timestamp": "2025-07-24T05:39:02.061Z"
+    },
+    "frame3": {
+      "feeling": "😵‍💫 Overwhelmed",
+      "focus": "Love & Encouragement",
+      "timestamp": "2025-07-24T05:39:05.964Z"
+    },
+    "frame4": {
+      "experienceChoice": "Games",
+      "timestamp": "2025-07-24T05:39:10.567Z"
+    }
+  },
+  "session_2025-07-24T05-40-37-032Z": {
+    "frame2": {
+      "ageSelection": "13 - 25",
+      "churchSelection": "0 - 1",
+      "timestamp": "2025-07-24T05:40:41.325Z"
+    },
+    "frame3": {
+      "feeling": "😌 Peaceful",
+      "focus": "Worship & Music",
+      "timestamp": "2025-07-24T05:41:51.900Z"
+    },
+    "frame4": {
+      "experienceChoice": "Games",
+      "timestamp": "2025-07-23T22:41:58-07:00"
+    }
+  },
+  "session_2025-07-24T06-00-59-161Z": {
+    "frame2": {
+      "ageSelection": "13 - 25",
+      "churchSelection": "0 - 1",
+      "timestamp": "2025-07-24T06:01:03.298Z"
+    },
+    "frame3": {
+      "feeling": "🔍 Seeking",
+      "focus": "Nature & Gratitude",
+      "timestamp": "2025-07-24T06:01:09.767Z"
+    },
+    "frame4": {
+      "experienceChoice": "Games",
+      "timestamp": "2025-07-23T23:01:14-07:00"
+    }
+  },
+  "session_2025-07-24T06-22-42-641Z": {
+    "frame2": {
+      "ageSelection": "0 - 12",
+      "churchSelection": "0 - 1",
+      "timestamp": "2025-07-28T07:53:33.644Z"
+    },
+    "frame3": {
+      "feeling": "☺️ Joyful",
+      "focus": "Peace & Reflexion",
+      "timestamp": "2025-07-28T07:53:37.986Z"
+    },
+    "frame4": {
+      "experienceChoice": "Bible Quiz",
+      "timestamp": "2025-07-28T00:53:42-07:00"
+    }
+  },
+  "session_2025-07-27T23-32-43-628Z": {
+    "frame2": {
+      "ageSelection": "51+",
+      "churchSelection": "1 - 5",
+      "timestamp": "2025-07-28T17:06:42.671Z"
+    },
+    "frame3": {
+      "feeling": "😌 Peaceful",
+      "focus": "Nature & Gratitude",
+      "timestamp": "2025-07-28T17:08:02.343Z"
+    },
+    "frame4": {
+      "experienceChoice": "Bible Quiz",
+      "timestamp": "2025-07-28T10:08:24-07:00"
+    }
+  },
+  "session_2025-07-28T00-22-59-714Z": {
+    "frame2": {
+      "ageSelection": "13 - 25",
+      "churchSelection": "0 - 1",
+      "timestamp": "2025-07-28T00:23:15.657Z"
+    },
+    "frame3": {
+      "feeling": "😌 Peaceful",
+      "focus": "Bible Study",
+      "timestamp": "2025-07-28T00:23:22.329Z"
+    },
+    "frame4": {
+      "experienceChoice": "Bible Quiz",
+      "timestamp": "2025-07-28T00:23:26.781Z"
+    }
+  },
+  "session_2025-07-28T07-29-30-102Z": {
+    "frame2": {
+      "ageSelection": "13 - 25",
+      "churchSelection": "0 - 1",
+      "timestamp": "2025-07-28T07:29:39.549Z"
+    },
+    "frame3": {
+      "feeling": "😌 Peaceful",
+      "focus": "Bible Study",
+      "timestamp": "2025-07-28T07:29:46.354Z"
+    },
+    "frame4": {
+      "experienceChoice": "Bible Quiz",
+      "timestamp": "2025-07-28T07:29:53.787Z"
+    }
+  },
+  "session_2025-07-28T15-31-10-550Z": {
+    "frame2": {
+      "ageSelection": "13 - 25",
+      "churchSelection": "0 - 1",
+      "timestamp": "2025-07-28T17:07:10.378Z"
+    },
+    "frame3": {
+      "feeling": "✨ Hopeful",
+      "focus": "Worship & Music",
+      "timestamp": "2025-07-28T17:20:07.501Z"
+    },
+    "frame4": {
+      "experienceChoice": "Mood detection",
+      "timestamp": "2025-07-28T10:38:02-07:00"
+    }
+  },
+  "session_2025-07-28T16-34-28-259Z": {
+    "frame2": {
+      "ageSelection": "51+",
+      "churchSelection": "5 - 10",
+      "timestamp": "2025-07-28T17:08:19.568Z"
+    },
+    "frame3": {
+      "feeling": "😌 Peaceful",
+      "focus": "Peace & Reflexion",
+      "timestamp": "2025-07-28T17:08:22.443Z"
+    },
+    "frame4": {
+      "experienceChoice": "Bible Quiz",
+      "timestamp": "2025-07-28T10:08:33-07:00"
+    }
+  }
+}

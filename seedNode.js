@@ -32,22 +32,28 @@ const sourceData = JSON.parse(rawJson);
 import { ref, push } from "firebase/database";
 import { db } from "../firebaseConfig.js";
 
-// Create an empty object to store the new version of the data
+// Helper function to check if a key looks like a Firebase push ID
+const isFirebasePushId = (key) => /^[A-Za-z0-9_-]{20}$/.test(key);
+
+// Create an object to store the updated data
 const updatedData = {};
 
 // Loop through each item in the source data
 Object.entries(sourceData).forEach(([key, item]) => {
-  // Copy the item and apply your changes here
-  const newKey = push(ref(db)).key; // Generate a new key using Firebase's push method
+  // Check if the key is already a Firebase push ID
+  const newKey = isFirebasePushId(key) ? key : push(ref(db)).key;
 
   const updatedItem = {
-    id: newKey, // Use the new key
-    ...item, // Spread the existing item properties
-     
+    ...item,
+    id: newKey
   };
-  updatedData[newKey] = updatedItem; // Assign the updated item to the new key
+
+  updatedData[newKey] = updatedItem;
 });
+
 // STEP 2 — END EDITABLE SECTION
+
+
 
 // STEP 3 — Save the modified data to uploadTimeChurch.json
 const uploadPath = path.join("NodesVersions", nodeName, `Upload${nodeName}Versions`, `upload_${nodeName}.json`);
