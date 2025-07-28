@@ -3,7 +3,8 @@
 
 // Import Firebase write functions and our database reference
 import { ref, set } from "firebase/database";
-import { db } from "../firebaseConfig.js";
+//import { db } from "../firebaseConfig.js";
+import { db, loginPromise } from "../firebaseConfig.js"; // ✅ make sure this is correct path
 
 // Import Node.js file system module to read the file
 import fs from "fs";
@@ -28,9 +29,11 @@ const nodeRef = ref(db, nodePath); // Create a reference to the node
 
 // STEP 3 — Send (overwrite) the data to Firebase
 const upload = async () => {
+  await loginPromise;             // Wait for login/auth
   await set(nodeRef, uploadData); // Replace the node content
-  console.log("✅ TimeChurchSelect node updated in Firebase.");
+  console.log(`✅ ${nodeName} node updated in Firebase.`);
 };
+
 
 // STEP 4 — Run and catch any errors
 upload().catch((err) => {

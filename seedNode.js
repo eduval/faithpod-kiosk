@@ -43,6 +43,8 @@ Object.entries(sourceData).forEach(([key, item]) => {
   // Check if the key is already a Firebase push ID
   const newKey = isFirebasePushId(key) ? key : push(ref(db)).key;
 
+  // STEP 2 — END EDITABLE SECTION
+
   const updatedItem = {
     ...item,
     id: newKey
@@ -50,10 +52,6 @@ Object.entries(sourceData).forEach(([key, item]) => {
 
   updatedData[newKey] = updatedItem;
 });
-
-// STEP 2 — END EDITABLE SECTION
-
-
 
 // STEP 3 — Save the modified data to uploadTimeChurch.json
 const uploadPath = path.join("NodesVersions", nodeName, `Upload${nodeName}Versions`, `upload_${nodeName}.json`);

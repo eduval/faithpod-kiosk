@@ -7,7 +7,8 @@
 // child() → navigates to a specific child node
 // db → our database connection from firebaseConfig.js
 import { ref, get, child } from "firebase/database";
-import { db } from "../firebaseConfig.js";
+//import { db } from "../firebaseConfig.js";
+import { db, loginPromise } from "../firebaseConfig.js"; 
 
 // Imports Node.js' built-in File System module so you can:
 // Create/Write/Read files from your computer.
@@ -28,8 +29,11 @@ if (!nodeName) {
 // Create a reference to the root of the database
 const dbRef = ref(db);
 
-// Start reading from the database
-get(child(dbRef, nodeName))
+// Wait for login to complete, then start reading from the database
+loginPromise
+  .then(() => {
+    return get(child(dbRef, nodeName));
+  })
   .then((snapshot) => {
     // If to check if the data exists at the specified node
     // If it doesn't exist, we will log an error message

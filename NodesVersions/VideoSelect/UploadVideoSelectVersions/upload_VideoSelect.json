@@ -1,12 +1,14 @@
 {
-  "-OWF1542mjaDfVMMDFFi": {
-    "id": "-OWF1542mjaDfVMMDFFi",
+  "-OWHP4rGh0kTIGiQBagM": {
     "VideoName": "Circle of Nations 2023",
     "VideoURL": "https://youtu.be/v5tidFFtUok?si=ZpJB5F7D2WP2kP6b",
     "Enable": true,
-    "Classifier": [
-      "-OVUzYrkHfqb9BdTw7JE",
-      "-OVUzYrlm8dqxxl8ZC_9"
-    ]
+    "id": "-OWHP4rGh0kTIGiQBagM"
+  },
+  "-OWHP4rGh0kTIGiQBagN": {
+    "VideoName": "You’re Invited! Circle of Nations 2023",
+    "VideoURL": "https://youtu.be/BsOZqFsraHs?si=sf4Lzaw7qyjvqHLw",
+    "Enable": true,
+    "id": "-OWHP4rGh0kTIGiQBagN"
   }
 }
