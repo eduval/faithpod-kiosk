@@ -1,19 +1,18 @@
 {
-  "hosting": {
-    "public": "../Downloads/kiosk project-react welcome/build",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  },
   "projects": {
     "default": "faithpod-kiosk-testing"
-  }
+  },
+  "targets": {
+    "faithpod-kiosk-testing": {
+      "hosting": {
+        "ipad": [
+          "faithpod-kiosk-testing"
+        ],
+        "tv": [
+          "faithpod-tv"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

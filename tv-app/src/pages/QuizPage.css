@@ -1,0 +1,116 @@
+.quiz-container {
+  background-color: #1c1c1c;
+  color: #fff;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+}
+
+.countdown-circle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  color: white;
+  border: 5px solid #00ff00;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.question-text {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.question-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.options-boxes {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.option-box {
+  width: 45%;
+  padding: 1rem;
+  background-color: #333;
+  border: 4px solid transparent;
+  border-radius: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #fff;
+}
+
+/* Green rim when user selects (before submitting) */
+.option-box.selected {
+  border-color: #00ff88;
+}
+
+/* Hover effect */
+.option-box:hover {
+  border-color: #555;
+}
+
+/* Green rim for correct answer after submission */
+.option-box.correct {
+  border-color: #0f8;
+  background-color: #163e16; /* subtle green background */
+}
+
+/* Red rim for wrong answer after submission */
+.option-box.wrong {
+  border-color: #ff0000;
+  background-color: #4d1a1a; /* subtle red background */
+}
+
+.answer-info {
+  margin-top: 1rem;
+  background-color: #2e2e2e;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.reference {
+  color: #ccc;
+  margin-top: 0.5rem;
+}
+
+.next-button {
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  background-color: #00bfff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: white;
+}
+
+.play-again {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.play-again button {
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  background-color: #00bfff;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  color: white;
+}

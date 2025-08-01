@@ -1,60 +1,78 @@
-// src/pages/Welcome.js
-import React from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
+import { useHistory } from 'react-router-dom';
+import { auth } from '../firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { getDatabase, ref, set } from 'firebase/database';
 import './welcome.css';
-
-// 🔁 Extracted into a reusable function for use in other frames too
-const getOrCreateSessionId = () => {
-  let sessionId = localStorage.getItem('sessionId');
-  if (!sessionId) {
-    const raw = new Date().toISOString();
-    sessionId = 'session_' + raw.replace(/[:.#$/\[\]]/g, '-');
-    localStorage.setItem('sessionId', sessionId);
-  }
-  return sessionId;
-};
 
 const Welcome = () => {
   const history = useHistory();
+  const [sessionId, setSessionId] = useState(null);
+  const db = getDatabase();
 
-  const handleBegin = () => {
-    getOrCreateSessionId(); // Set sessionId once at beginning
-    history.push('/page2');
+  useEffect(() => {
+    signInWithEmailAndPassword(auth, 'eperezr@uni.pe', '12@23#34$')
+      .then(async (userCredential) => {
+        const user = userCredential.user;
+
+        // Sanitize ISO timestamp for sessionId (replace ':' and '.' with '-')
+        const iso = new Date().toISOString();
+        const sanitizedIso = iso.replace(/[:.]/g, '-');
+        const newSessionId = `session_${sanitizedIso}`;
+
+        setSessionId(newSessionId);
+
+        // Save session start in Firebase under sanitized sessionId
+        await set(ref(db, `userSessions/${user.uid}/${newSessionId}/sessionStart`), {
+          timestamp: Date.now(),
+        });
+
+        console.log('User logged in and session started:', newSessionId);
+      })
+      .catch((error) => {
+        console.error('Login error:', error.message);
+      });
+  }, [db]);
+
+  const handleBeginClick = () => {
+    if (sessionId) {
+      // Pass sanitized sessionId to next page
+      history.push('/page2', { sessionId });
+    } else {
+      history.push('/page2');
+    }
   };
 
   return (
-    <div className="welcome-container">
+    <>
       <Helmet>
-        <title>Faith App</title>
+        <title>Faithpod Welcome</title>
       </Helmet>
 
-      <div className="welcome-welcome">
-        <img
-          src="/external/rectangle1314-sn4n-600h.png"
-          alt="Background Overlay"
-          className="welcome-rectangle1"
-        />
-        <img
-          src="/external/image124-zjov-400w.png"
-          alt="Faith Logo"
-          className="welcome-image1"
-        />
-        <span className="welcome-text1">
-          ‘’Begin your spiritual journey before today’s service’’
-        </span>
-
-        <div
-          onClick={handleBegin}
-          className="welcome-frame9"
-          role="button"
-          tabIndex={0}
-          onKeyDown={(e) => e.key === 'Enter' && handleBegin()}
-        >
-          <span className="welcome-text2">Begin</span>
+      <div className="welcome-container">
+        <div className="welcome-welcome">
+          <img
+            src="/external/image1012103-oiv7-900h.png"
+            alt="Background"
+            className="welcome-image101"
+          />
+          <div className="welcome-rectangle1">
+            <img
+              src="/external/image124-bjdn-400w.png"
+              alt="Faith Logo"
+              className="welcome-image1"
+            />
+            <span className="welcome-text1">
+              “Begin your spiritual journey before today’s service”
+            </span>
+            <div className="welcome-frame9" onClick={handleBeginClick}>
+              <span className="welcome-text2">Begin</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
