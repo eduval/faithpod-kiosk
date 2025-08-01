@@ -1,6 +1,5 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
-import { getDatabase, ref, set } from 'firebase/database';
+// src/firebase.js
+import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCnbUwqdNXpX4SWnzvVcgdy6772O9cQzR0",
@@ -14,10 +13,6 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const database = getDatabase(app);
-
-export { auth, database };
 
 export async function getServerTime() {
   try {
@@ -30,11 +25,4 @@ export async function getServerTime() {
   }
 }
 
-export function saveSession(user) {
-  getServerTime().then(serverTime => {
-    set(ref(database, 'sessions/' + user.uid), {
-      email: user.email,
-      timestamp: serverTime
-    });
-  });
-}
+export default app;

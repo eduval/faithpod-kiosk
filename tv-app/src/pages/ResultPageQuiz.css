@@ -1,0 +1,98 @@
+.result-container {
+  background-color: #1c1c1c;
+  color: #e0e0e0; /* Slightly lighter for better readability */
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.result-title {
+  font-size: 2.8rem; /* Slightly bigger */
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  color: #00ff88; /* Highlight the title in green for pop */
+  text-shadow: 0 0 8px #00ff88aa;
+}
+
+.score-box {
+  background-color: #2e2e2e;
+  border: 2px solid #00ff88;
+  border-radius: 1rem;
+  padding: 2.5rem 3rem;
+  width: 90%;
+  max-width: 520px;
+  box-shadow: 0 0 15px #00ff8855;
+  user-select: none;
+}
+
+.score-box h2 {
+  font-size: 3.4rem;
+  margin: 1.5rem 0;
+  color: #00ff88;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.message {
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
+  color: #b0b0b0;
+  font-style: italic;
+}
+
+.play-again {
+  margin-top: 3rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.play-again button {
+  padding: 0.9rem 2.5rem;
+  font-size: 1.2rem;
+  background-color: #00bfff;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 4px 12px #00bfff99;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.play-again button:hover,
+.play-again button:focus {
+  background-color: #0099cc;
+  box-shadow: 0 6px 16px #0099cccc;
+  outline: none;
+}
+
+@media (max-width: 480px) {
+  .score-box {
+    padding: 1.8rem 2rem;
+  }
+
+  .result-title {
+    font-size: 2rem;
+  }
+
+  .score-box h2 {
+    font-size: 2.6rem;
+  }
+
+  .message {
+    font-size: 1rem;
+  }
+
+  .play-again button {
+    padding: 0.7rem 2rem;
+    font-size: 1rem;
+  }
+}

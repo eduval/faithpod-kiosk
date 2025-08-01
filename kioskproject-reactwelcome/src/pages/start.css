@@ -1,90 +1,82 @@
-/* Full viewport container with sunset background */
+/* start.css */
+
 .start-container {
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
   position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
-  overflow: hidden;
+  justify-content: center;
+  font-family: 'Inria Sans', sans-serif;
+  background-color: #ffffff;
 }
 
-/* Fullscreen background image */
-.start-image2 {
+.start-bg {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   z-index: 0;
 }
 
-/* Transparent background box at center */
-.start-start {
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 20px;
-  width: 400px;
-  height: 400px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-}
-
-/* Inner white box */
-.start-content-box {
+/* Main card container */
+.start-rectangle {
+  position: relative;
   background-color: rgba(255, 255, 255, 0.95);
-  border-radius: 15px;
-  padding: 30px 20px;
+  border-radius: 20px;
+  padding: 40px 20px;
+  max-width: 500px;
   width: 90%;
-  height: 90%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   text-align: center;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Logo */
-.start-image1 {
-  width: 110px;
+/* Faith logo */
+.welcome-image1 {
+  width: 240px;
   height: auto;
-  margin: 0 auto 10px;
   object-fit: contain;
+  display: block;
+  margin-bottom: 24px;
 }
 
-/* Headline text */
-.start-text2 {
+/* Title */
+.start-title {
   font-size: 28px;
-  font-family: "Inria Sans", sans-serif;
-  font-weight: 700;
-  color: #000;
-  margin-bottom: 10px;
-}
-
-/* Subtext */
-.start-text1 {
-  font-size: 18px;
-  font-family: "Inria Serif", serif;
-  font-weight: 400;
-  color: #000;
+  font-weight: 600;
   margin-bottom: 20px;
+  color: #000;
+  text-align: center;
 }
 
-/* Start button */
-.start-frame9 {
-  background-color: #000;
-  color: #fff;
-  font-size: 22px;
-  font-family: "Inria Sans", sans-serif;
-  font-weight: 700;
-  padding: 14px 60px;
+/* Subtitle */
+.start-subtext {
+  font-size: 18px;
+  font-style: italic;
+  margin-bottom: 30px;
+  color: #333;
+  text-align: center;
+}
+
+/* CTA Button */
+.start-button {
+  background-color: #075864;
+  color: white;
+  font-size: 24px;
+  padding: 16px 60px;
+  border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin: 0 auto;
+  transition: background 0.3s ease;
+  width: fit-content;
 }
 
-.start-frame9:hover {
-  background-color: #222;
+.start-button:hover {
+  background-color: #0a6d7c;
 }

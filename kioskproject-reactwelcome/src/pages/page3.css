@@ -1,0 +1,163 @@
+.page3-container {
+  width: 100%;
+  max-width: 1200px;
+  height: 100vh;
+  margin: auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f7f9fc;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.page3-container h2 {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.page3-container .subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.page3-container .section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  padding: 0 20px; /* Matches Page 2 inset */
+}
+
+.page3-container .section h3 {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.page3-container .section h3::before {
+  content: '🏠'; /* Default icon */
+  margin-right: 10px;
+}
+
+.page3-container .section:nth-of-type(1) h3::before {
+  content: '🏠';
+}
+
+.page3-container .section:nth-of-type(2) h3::before {
+  content: '🧍';
+}
+
+.page3-container .options-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.page3-container .option-btn {
+  padding: 14px 28px;
+  border: 2px solid #55a1e2;
+  border-radius: 10px;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  min-width: 120px;
+  transition: all 0.2s ease-in-out;
+  font-weight: bold;
+}
+
+.page3-container .option-btn.selected {
+  background-color: #55a1e2;
+  color: #fff;
+}
+
+.page3-container .nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.page3-container .back-btn,
+.page3-container .next-btn {
+  padding: 14px 32px;
+  font-size: 18px;
+  border-radius: 10px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.page3-container .back-btn {
+  background-color: #d0e7f9;
+  color: #004085;
+}
+
+.page3-container .next-btn {
+  background-color: #ccc;
+  color: #888;
+}
+
+.page3-container .next-btn:enabled {
+  background-color: #007bff;
+  color: white;
+}
+
+.page3-container .footer-note {
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+}
+
+@media screen and (max-width: 768px) {
+  .page3-container {
+    padding: 16px;
+    height: 100vh;
+  }
+
+  .page3-container h2 {
+    font-size: 24px;
+  }
+
+  .page3-container .subtitle {
+    font-size: 16px;
+  }
+
+  .page3-container .section {
+    padding: 0 12px;
+  }
+
+  .page3-container .section h3 {
+    font-size: 18px;
+  }
+
+  .page3-container .option-btn {
+    min-width: 100px;
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+
+  .page3-container .back-btn,
+  .page3-container .next-btn {
+    width: 45%;
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+
+  .page3-container .options-row {
+    gap: 12px;
+  }
+
+  .page3-container .footer-note {
+    font-size: 12px;
+  }
+}

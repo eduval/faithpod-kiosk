@@ -1,16 +1,24 @@
 {
-  "hosting": {
-    "public": "kioskproject-reactwelcome/build",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  }
+  "hosting": [
+    {
+      "target": "ipad",
+      "public": "kioskproject-reactwelcome/build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [ { "source": "**", "destination": "/index.html" } ]
+    },
+    {
+      "target": "tv",
+      "public": "tv-app/build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [ { "source": "**", "destination": "/index.html" } ]
+    }
+  ]
 }
