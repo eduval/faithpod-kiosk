@@ -1,15 +1,33 @@
-// src/pages/ThankYouPage.js
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ThankyouPage.css';
+import { getDatabase, ref, update } from 'firebase/database';
 
 function ThankYouPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Get the userId and sessionKey (adjust if you're storing it differently)
+    const userId = localStorage.getItem('userId');
+    const sessionKey = localStorage.getItem('sessionKey');
+
+    if (userId && sessionKey) {
+      const db = getDatabase();
+      const confirmationRef = ref(db, `userSessions/${userId}/${sessionKey}/confirmation`);
+
+      update(confirmationRef, { completed: true })
+        .then(() => {
+          console.log('✅ Session marked as complete.');
+        })
+        .catch((error) => {
+          console.error('❌ Error marking complete:', error);
+        });
+    }
+
+    // Redirect back to start after 15 seconds
     const timeout = setTimeout(() => {
       navigate('/');
-    }, 15000); // stays for 15 seconds
+    }, 15000);
     return () => clearTimeout(timeout);
   }, [navigate]);
 
@@ -19,7 +37,6 @@ function ThankYouPage() {
 
       <div className="centered-rectangle">
         <img src="/rectangle1314-uyh-600h.png" alt="Message box" className="rectangle-image" />
-
         <img src="/image124-zjov-400w.png" alt="Inner decoration" className="inside-image" />
 
         <div className="thankyou-text">

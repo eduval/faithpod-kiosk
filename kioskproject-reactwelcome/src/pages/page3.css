@@ -1,7 +1,8 @@
 .page3-container {
   width: 100%;
   max-width: 1200px;
-  height: 100vh;
+  min-height: 100vh;
+  /* allow growth */
   margin: auto;
   padding: 30px 20px;
   box-sizing: border-box;
@@ -10,8 +11,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden;
+  overflow-y: auto;
+  /* allow scrolling */
+  overflow-x: hidden;
 }
+
 
 
 .page3-container h2 {

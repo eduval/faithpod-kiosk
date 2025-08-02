@@ -1,6 +1,7 @@
 .page2-container {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  /* changed */
   margin: auto;
   padding: 30px 20px;
   box-sizing: border-box;
@@ -10,7 +11,9 @@
   flex-direction: column;
   justify-content: space-between;
   font-family: 'Segoe UI', sans-serif;
-  overflow: hidden;
+  overflow-y: auto;
+  /* changed */
+  overflow-x: hidden;
 }
 
 h2 {
