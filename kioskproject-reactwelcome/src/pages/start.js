@@ -19,23 +19,14 @@ const Start = () => {
   const user = auth.currentUser;
   const userId = user?.uid || null;
 
+  const [started, setStarted] = useState(false);
+
   useEffect(() => {
-    if (!userId || !sessionId) {
-      console.error('Missing userId or sessionId!');
-      return;
-    }
-
-    const sessionRef = ref(db, `userSessions/${userId}/${sessionId}/confirmation`);
-    set(sessionRef, {
-      confirmed: true,
-      timestamp: Date.now(),
-    });
-
     (async () => {
       await startWebcam();
       const result = await analyzeMood();
 
-      if (result && !moodSaved) {
+      if (result && !moodSaved && userId && sessionId) {
         const moodRef = ref(db, `userSessions/${userId}/${sessionId}/mood`);
         await set(moodRef, {
           mood: result.mood,
@@ -48,13 +39,24 @@ const Start = () => {
     })();
   }, [userId, sessionId, db, moodSaved]);
 
-  const handleStartClick = () => {
-    if (!sessionId) {
-      alert('Session ID missing, please start over.');
+  const handleStartClick = async () => {
+    if (!sessionId || !userId) {
+      alert('Session ID or user ID missing, please start over.');
       history.push('/');
       return;
     }
-    history.push('/thankyou', { sessionId });
+
+    const sessionRef = ref(db, `userSessions/${userId}/${sessionId}/confirmation`);
+    await set(sessionRef, {
+      confirmed: true,
+      active: true,
+      timestamp: Date.now(),
+    });
+
+    setStarted(true);
+
+    // Optional: redirect to next page
+    // setTimeout(() => history.push('/thankyou', { sessionId }), 5000);
   };
 
   return (
@@ -75,11 +77,21 @@ const Start = () => {
         />
         <h2 className="start-title">You’re all set! ✨</h2>
         <p className="start-subtext">
-          “Now head into the kiosk and your experience will begin”
+          Press Start to complete the environment
         </p>
-        <button className="start-button" onClick={handleStartClick}>
+        <button
+          className="start-button"
+          onClick={handleStartClick}
+          disabled={started}
+        >
           Start
         </button>
+
+        {started && (
+          <div className="start-move-message">
+            <span>Please proceed to the kiosk now to begin your experience.</span>
+          </div>
+        )}
       </div>
     </div>
   );

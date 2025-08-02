@@ -37,13 +37,15 @@
   justify-content: center;
 }
 
-/* Faith logo */
+/* Faith logo smaller from the start */
 .welcome-image1 {
-  width: 240px;
+  width: 120px;
+  /* smaller size */
   height: auto;
   object-fit: contain;
   display: block;
   margin-bottom: 24px;
+  transition: width 0.4s ease;
 }
 
 /* Title */
@@ -77,6 +79,43 @@
   width: fit-content;
 }
 
-.start-button:hover {
+.start-button:hover:not(:disabled) {
   background-color: #0a6d7c;
+}
+
+.start-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.start-move-message {
+  margin-top: 40px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #075864;
+  text-align: center;
+  animation: pulseGlow 2.5s ease-in-out infinite;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Optional icon inside message */
+.start-move-message span.icon {
+  font-size: 32px;
+}
+
+/* Pulse glow animation */
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    text-shadow: 0 0 5px #075864;
+  }
+
+  50% {
+    text-shadow: 0 0 20px #0a6d7c;
+  }
 }

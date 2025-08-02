@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom';
 import { auth } from '../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { getDatabase, ref, set } from 'firebase/database';
+
+import BackgroundSlideshow from './BackgroundSlideshow.js'; // import slideshow component
 import './welcome.css';
 
 const Welcome = () => {
@@ -37,7 +39,6 @@ const Welcome = () => {
 
   const handleBeginClick = () => {
     if (sessionId) {
-      // Pass sanitized sessionId to next page
       history.push('/page2', { sessionId });
     } else {
       history.push('/page2');
@@ -51,20 +52,17 @@ const Welcome = () => {
       </Helmet>
 
       <div className="welcome-container">
+        <BackgroundSlideshow />
+
         <div className="welcome-welcome">
-          <img
-            src="/external/image1012103-oiv7-900h.png"
-            alt="Background"
-            className="welcome-image101"
-          />
           <div className="welcome-rectangle1">
             <img
-              src="/external/image124-bjdn-400w.png"
+              src="external/image124-bjdn-400w.png"
               alt="Faith Logo"
               className="welcome-image1"
             />
             <span className="welcome-text1">
-              “Begin your spiritual journey before today’s service”
+              “A space for everyone to smile, reflect, and grow in faith"
             </span>
             <div className="welcome-frame9" onClick={handleBeginClick}>
               <span className="welcome-text2">Begin</span>

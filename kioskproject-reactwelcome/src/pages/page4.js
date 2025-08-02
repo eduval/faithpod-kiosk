@@ -80,7 +80,7 @@ const Page4 = () => {
       </Helmet>
 
       <div className="page4-content">
-        <h1 className="page4-title">Choose your experience</h1>
+        <h2>Choose your experience</h2>
 
         <div className="page4-options">
           {options.map((item) => {
