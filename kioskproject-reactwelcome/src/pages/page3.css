@@ -3,9 +3,9 @@
   max-width: 1200px;
   height: 100vh;
   margin: auto;
-  padding: 20px;
+  padding: 30px 20px;
   box-sizing: border-box;
-  background-color: #f7f9fc;
+  background: linear-gradient(135deg, #f7f9fc 0%, #f7f9fc 100%);
   font-family: 'Segoe UI', sans-serif;
   display: flex;
   flex-direction: column;
@@ -13,42 +13,56 @@
   overflow: hidden;
 }
 
+
 .page3-container h2 {
-  font-size: 32px;
+  font-size: 36px;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 4px;
+  color: #2d2d2d;
+  margin-bottom: 8px;
 }
 
 .page3-container .subtitle {
   text-align: center;
-  color: #666;
-  font-size: 18px;
-  margin-bottom: 16px;
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 24px;
 }
 
 .page3-container .section {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 24px;
-  padding: 0 20px; /* Matches Page 2 inset */
+  margin-bottom: 36px;
 }
 
 .page3-container .section h3 {
   display: flex;
   align-items: center;
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 8px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 50px;
+  /* space for icon */
 }
 
-.page3-container .section h3::before {
-  content: '🏠'; /* Default icon */
-  margin-right: 10px;
+/* Shared icon styles */
+.page3-container .section:nth-of-type(1) h3::before,
+.page3-container .section:nth-of-type(2) h3::before,
+.page3-container .section:nth-of-type(3) h3::before {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 36px;
 }
 
+/* Bouncing icons by default */
+.page3-container .section:nth-of-type(1) h3::before,
+.page3-container .section:nth-of-type(3) h3::before {
+  animation: bounce 1.5s infinite;
+}
+
+/* Set content for each icon */
 .page3-container .section:nth-of-type(1) h3::before {
   content: '🏠';
 }
@@ -57,11 +71,23 @@
   content: '🧍';
 }
 
+.page3-container .section:nth-of-type(3) h3::before {
+  content: '🎨';
+}
+
+/* Only add bounce to second icon when active class is present */
+.page3-container .section:nth-of-type(2).active h3::before {
+  animation: bounce 1.5s infinite;
+}
+
+
+
 .page3-container .options-row {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 16px;
+  margin-top: 8px;
 }
 
 .page3-container .option-btn {
@@ -72,8 +98,9 @@
   cursor: pointer;
   font-size: 18px;
   min-width: 120px;
-  transition: all 0.2s ease-in-out;
   font-weight: bold;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  color: #333;
 }
 
 .page3-container .option-btn.selected {
@@ -85,6 +112,7 @@
   display: flex;
   justify-content: center;
   gap: 40px;
+  margin-top: 20px;
 }
 
 .page3-container .back-btn,
@@ -116,16 +144,18 @@
   text-align: center;
   font-size: 14px;
   color: #888;
+  margin-top: 16px;
 }
 
+/* Responsive */
 @media screen and (max-width: 768px) {
   .page3-container {
-    padding: 16px;
+    padding: 20px;
     height: 100vh;
   }
 
   .page3-container h2 {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   .page3-container .subtitle {
@@ -133,11 +163,12 @@
   }
 
   .page3-container .section {
-    padding: 0 12px;
+    margin-bottom: 24px;
   }
 
   .page3-container .section h3 {
     font-size: 18px;
+    padding-left: 40px;
   }
 
   .page3-container .option-btn {

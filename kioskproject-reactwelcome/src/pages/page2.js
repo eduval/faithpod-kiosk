@@ -20,24 +20,18 @@ function Page2() {
   const history = useHistory();
   const location = useLocation();
 
-  // Get sessionId from router state and watch auth state
   useEffect(() => {
     const { sessionId } = location.state || {};
     setSessionId(sessionId || null);
 
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUserId(user.uid);
-      } else {
-        console.log('User not authenticated, redirecting to Welcome.');
-        history.push('/');
-      }
+      if (user) setUserId(user.uid);
+      else history.push('/');
     });
 
     return () => unsubscribe();
   }, [history, location.state]);
 
-  // Fetch select options
   useEffect(() => {
     const fetchData = (path, setState, labelKey) => {
       const dbRef = ref(database, path);
@@ -45,8 +39,8 @@ function Page2() {
         const data = snapshot.val();
         if (data) {
           const filtered = Object.values(data)
-            .filter((item) => item.Enable)
-            .map((item) => item[labelKey]);
+            .filter(item => item.Enable)
+            .map(item => item[labelKey]);
           setState(filtered);
         }
       });
@@ -70,38 +64,43 @@ function Page2() {
     const page2Ref = ref(database, `userSessions/${userId}/${sessionId}/frame2`);
     set(page2Ref, userData)
       .then(() => {
-        console.log('Page 2 selections saved.');
         history.push('/page3', { userId, sessionId });
       })
-      .catch((err) => console.error('Error saving to Firebase:', err));
+      .catch(console.error);
   };
 
-  const handleBack = () => {
-    history.push('/');
+  const handleBack = () => history.push('/');
+
+  // Helper to conditionally animate icons
+  const shouldAnimate = (sectionNumber) => {
+    if (sectionNumber === 1) return true;
+    if (sectionNumber === 3) return !!selectedChurch;
+    if (sectionNumber === 2) return !!selectedAge;
+    return false;
+  };
+
+  // Color map for favColors
+  const colorMap = {
+    red: '#e74c3c',
+    blue: '#3498db',
+    green: '#27ae60',
+    yellow: '#f1c40f',
+    pink: '#fd79a8',
+    purple: '#9b59b6',
+    orange: '#e67e22',
+    black: '#2d3436',
+    white: '#ffffff',
+    teal: '#1abc9c',
   };
 
   return (
+
     <div className="page2-container">
       <div>
         <h2>Tell Us About Yourself</h2>
         <p className="subtitle">This will help us personalize your experience</p>
 
-        <div className="section">
-          <h3>How long have you been part of this/a church?</h3>
-          <div className="options-row">
-            {churchDurations.map((duration, idx) => (
-              <button
-                key={idx}
-                className={`option-btn ${selectedChurch === duration ? 'selected' : ''}`}
-                onClick={() => setSelectedChurch(duration)}
-              >
-                {duration}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="section">
+        <div className={`section ${shouldAnimate(1) ? 'animate' : ''}`}>
           <h3>How old are you?</h3>
           <div className="options-row">
             {ageRanges.map((age, idx) => (
@@ -116,18 +115,46 @@ function Page2() {
           </div>
         </div>
 
-        <div className="section">
-          <h3>What’s your favourite colour?</h3>
+        <div className={`section ${shouldAnimate(2) ? 'animate' : ''}`}>
+          <h3>How long have you been part of this/a church?</h3>
           <div className="options-row">
-            {favColors.map((color, idx) => (
+            {churchDurations.map((duration, idx) => (
               <button
                 key={idx}
-                className={`option-btn ${selectedColor === color ? 'selected' : ''}`}
-                onClick={() => setSelectedColor(color)}
+                className={`option-btn ${selectedChurch === duration ? 'selected' : ''}`}
+                onClick={() => setSelectedChurch(duration)}
               >
-                {color}
+                {duration}
               </button>
             ))}
+          </div>
+        </div>
+
+        <div className={`section ${shouldAnimate(3) ? 'animate' : ''}`}>
+          <h3>What’s your favourite colour?</h3>
+          <div className="options-row">
+            {favColors.map((color, idx) => {
+              const lower = color.toLowerCase();
+              const isSelected = selectedColor === color;
+              const backgroundColor = colorMap[lower] || '#bdc3c7';
+              const textColor = lower === 'white' ? '#333' : '#fff';
+
+              return (
+                <button
+                  key={idx}
+                  className="color-btn"
+                  onClick={() => setSelectedColor(color)}
+                  style={{
+                    backgroundColor,
+                    color: textColor,
+                    filter: isSelected ? 'brightness(110%)' : 'brightness(70%)',
+                    boxShadow: isSelected ? '0 6px 12px rgba(0,0,0,0.3)' : 'none',
+                  }}
+                >
+                  {color}
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>

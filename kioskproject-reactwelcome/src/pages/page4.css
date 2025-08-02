@@ -1,12 +1,13 @@
 .page4-container {
   width: 100%;
   min-height: 100vh;
-  background-color: #ffffff;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #f7f9fc 0%, #f7f9fc 100%);
+  font-family: 'Segoe UI', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  box-sizing: border-box;
 }
 
 .page4-content {
@@ -16,42 +17,85 @@
 }
 
 .page4-title {
-  font-size: 28px;
-  color: #002d5d;
-  margin-bottom: 20px;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  color: #2d2d2d;
+  margin-bottom: 8px;
+  animation: fadeSlideIn 0.6s ease;
 }
 
 .page4-options {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
-  margin-bottom: 30px;
+  gap: 16px;
+  margin-top: 16px;
+  margin-bottom: 24px;
 }
 
 .page4-option {
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
   border: 2px solid #ccc;
   border-radius: 12px;
+  background-color: #fff;
   padding: 20px;
-  background-color: #f5f5f5;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  user-select: none;
+  position: relative;
+}
+
+.page4-option:hover {
+  border-color: #55a1e2;
+  background-color: #e6f0ff;
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(85, 161, 226, 0.3);
+}
+
+.page4-option.selected {
+  background-color: #08661e;
+  color: white;
+  border-color: #00ff15;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+  animation: popSelect 0.35s ease forwards;
+}
+
+/* Apply filter only to images inside selected option */
+.page4-option.selected .page4-icon-layer {
+  filter: brightness(0) invert(1);
+}
+
+@keyframes popSelect {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 .page4-icon-stack {
   position: relative;
   width: 50px;
   height: 50px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
-/* Base icon style: all icons 50x50 */
 .page4-icon-layer {
   position: absolute;
   top: 0;
@@ -61,7 +105,6 @@
   object-fit: contain;
 }
 
-/* If there's a second icon (like the triangle), make it smaller and centered */
 .page4-icon-layer:nth-child(2) {
   width: 24px;
   height: 24px;
@@ -70,70 +113,61 @@
   z-index: 10;
 }
 
-.page4-option span {
-  font-size: 16px;
-  font-weight: 500;
-  color: #003366;
-}
-
-.page4-option:hover {
-  border-color: #3399ff;
-}
-
-.page4-option.selected {
-  background-color: #cce6ff;
-  border-color: #007bff;
-}
-
 .page4-note {
   font-size: 14px;
-  color: #666;
+  color: #888;
   margin: 20px auto;
   width: 80%;
+  text-align: center;
 }
 
 .page4-buttons {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 40px;
+  margin-top: 20px;
 }
 
 .page4-buttons button {
-  padding: 10px 20px;
+  padding: 14px 32px;
+  font-size: 18px;
   font-weight: bold;
+  border-radius: 10px;
   border: none;
-  border-radius: 8px;
-  color: white;
   cursor: pointer;
-  font-size: 16px;
+  color: white;
+  background-color: #007bff;
+  transition: background-color 0.3s ease;
 }
 
-.back-btn {
-  background-color: #aaa;
+
+
+.page4-buttons .back-btn {
+  background-color: #d0e7f9;
+  color: #004085;
 }
 
-.next-btn {
-  background-color: #002d5d;
-}
-
-.next-btn:disabled {
-  background-color: #888;
+.page4-buttons .next-btn:disabled {
+  background-color: #ccc;
+  color: #888;
   cursor: not-allowed;
 }
 
-/* Mobile Responsive */
-@media (max-width: 600px) {
-  .page4-option {
-    width: 120px;
-    height: 120px;
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .page4-container {
+    padding: 20px;
   }
 
   .page4-title {
-    font-size: 22px;
+    font-size: 28px;
   }
 
-  .page4-option span {
-    font-size: 14px;
+  .page4-option {
+    width: 140px;
+    height: 140px;
+    font-size: 16px;
+    padding: 16px;
   }
 
   .page4-icon-stack {
@@ -146,11 +180,32 @@
     height: 40px;
   }
 
-  /* Smaller nested icon for mobile */
   .page4-icon-layer:nth-child(2) {
     width: 18px;
     height: 18px;
     top: 11px;
     left: 11px;
+  }
+
+  .page4-buttons button {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+
+  .page4-buttons {
+    gap: 20px;
+  }
+}
+
+/* Title fade slide animation */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

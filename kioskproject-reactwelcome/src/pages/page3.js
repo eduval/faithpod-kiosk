@@ -5,6 +5,10 @@ import { database } from '../firebase';
 import './page3.css';
 
 function Page3() {
+  const history = useHistory();
+  const location = useLocation();
+  const { userId, sessionId } = location.state || {};
+
   const feelingsList = [
     { key: 'peaceful', word: 'Peaceful', emoji: '🕊️' },
     { key: 'overwhelmed', word: 'Overwhelmed', emoji: '😰' },
@@ -20,30 +24,23 @@ function Page3() {
   const [selectedFeeling, setSelectedFeeling] = useState(null);
   const [selectedIntention, setSelectedIntention] = useState(null);
 
-  const history = useHistory();
-  const location = useLocation();
-
-  // Get userId and sessionId from location.state
-  const { userId, sessionId } = location.state || {};
-
   useEffect(() => {
     const fetchIntentions = () => {
       const dbRef = ref(database, 'IntentionSelect');
       onValue(dbRef, (snapshot) => {
         const data = snapshot.val();
-        if (data) {
-          const filtered = Object.values(data)
-            .filter((item) => item.Enable)
-            .map((item) => item.Focus);
-          setIntentions(filtered);
-        } else {
-          setIntentions([]);
-        }
+        const filtered = data
+          ? Object.values(data).filter((item) => item.Enable).map((item) => item.Focus)
+          : [];
+        setIntentions(filtered);
       });
     };
-
     fetchIntentions();
   }, []);
+
+  const handleBack = () => {
+    history.push('/page2', { userId, sessionId });
+  };
 
   const handleNext = async () => {
     if (!selectedFeeling || !selectedIntention) return;
@@ -55,7 +52,6 @@ function Page3() {
 
     try {
       const userRef = ref(database, `userSessions/${userId}/${sessionId}/frame3`);
-
       const snapshot = await get(userRef);
       const existingData = snapshot.val() || {};
 
@@ -74,32 +70,30 @@ function Page3() {
     }
   };
 
-  const handleBack = () => {
-    history.push('/page2', { userId, sessionId });
-  };
-
   return (
     <div className="page3-container">
       <h2>Tell us about yourself</h2>
       <p className="subtitle">This will help us personalize your experience</p>
 
+      {/* Feeling Section */}
       <div className="section">
         <h3>How are you feeling today?</h3>
         <div className="options-row">
-          {feelingsList.map(({ key, word, emoji }) => (
+          {feelingsList.map((feeling) => (
             <button
-              key={key}
-              className={`option-btn ${selectedFeeling === word ? 'selected' : ''}`}
-              onClick={() => setSelectedFeeling(word)}
+              key={feeling.key}
+              className={`option-btn ${selectedFeeling === feeling.word ? 'selected' : ''}`}
+              onClick={() => setSelectedFeeling(feeling.word)}
               type="button"
             >
-              <span style={{ marginRight: 8 }}>{emoji}</span> {word}
+              <span className="emoji animated">{feeling.emoji}</span> {feeling.word}
             </button>
           ))}
         </div>
       </div>
 
-      <div className="section">
+      {/* Intention Section */}
+      <div className={`section ${selectedFeeling ? 'active' : ''}`}>
         <h3>Choose your focus for today</h3>
         <div className="options-row">
           {intentions.map((focus, idx) => (
@@ -109,7 +103,7 @@ function Page3() {
               onClick={() => setSelectedIntention(focus)}
               type="button"
             >
-              {focus}
+              <span className={`emoji ${selectedFeeling ? 'animated' : ''}`}>✨</span> {focus}
             </button>
           ))}
         </div>
