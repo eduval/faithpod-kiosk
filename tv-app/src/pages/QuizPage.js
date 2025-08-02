@@ -79,8 +79,8 @@ function QuizPage() {
     const correctAnswer = Array.isArray(correctObj)
       ? correctObj[0]
       : typeof correctObj === 'object'
-      ? Object.values(correctObj)[0]
-      : correctObj;
+        ? Object.values(correctObj)[0]
+        : correctObj;
 
     const isCorrectAnswer = answer === correctAnswer;
     setIsCorrect(isCorrectAnswer);
@@ -112,7 +112,7 @@ function QuizPage() {
 
       setTimeout(() => {
         navigate('/thankyou');
-      }, 3000); // 3 seconds delay
+      }, 10000); // 3 seconds delay
     }
   }, [currentQuestionIndex, quizQuestions.length, navigate, score, hasSubmittedResults]);
 
@@ -182,8 +182,8 @@ function QuizPage() {
             {isTimeUp
               ? "Time's up! The correct answer is:"
               : isCorrect
-              ? 'Correct!'
-              : 'Wrong!'}
+                ? 'Correct!'
+                : 'Wrong!'}
             <br />
             <strong>Answer:</strong> {currentQuestion.correct_answers}
           </p>

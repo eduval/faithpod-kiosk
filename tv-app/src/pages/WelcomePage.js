@@ -4,6 +4,7 @@ import {
   getDatabase,
   ref,
   onValue,
+  update
 } from "firebase/database";
 import {
   getAuth,
@@ -68,9 +69,9 @@ const WelcomePage = () => {
       }
     }, 400);
 
-    // Delay session listener setup by 15 seconds
-    let lastSeenKey = null;
-    let unsubscribe = () => {};
+    // Delay session listener setup
+    let hasClaimed = false;
+    let unsubscribe = () => { };
 
     const sessionCheckTimeout = setTimeout(() => {
       const db = getDatabase(firebaseApp);
@@ -78,36 +79,61 @@ const WelcomePage = () => {
 
       unsubscribe = onValue(sessionRef, (snapshot) => {
         const sessions = snapshot.val();
-        if (!sessions) return;
+        if (!sessions || hasClaimed) return;
 
-        const sortedKeys = Object.keys(sessions).sort().reverse();
-        const latestKey = sortedKeys[0];
-        const latestSession = sessions[latestKey];
-        const experience = latestSession?.frame4?.experienceChoice;
+        const candidates = [];
 
-        console.log("Latest session key:", latestKey);
-        console.log("Latest experience choice:", experience);
+        // Iterate outer keys (e.g., userId)
+        Object.entries(sessions).forEach(([userId, sessionGroup]) => {
+          // sessionGroup has keys like "session_2025-..."
+          Object.entries(sessionGroup).forEach(([sessionKey, sessionData]) => {
+            const confirmation = sessionData?.confirmation;
 
-        if (latestKey !== lastSeenKey && experience) {
-          lastSeenKey = latestKey;
+            if (confirmation?.ready && !confirmation?.claimed) {
+              candidates.push({
+                userId,
+                sessionKey,
+                confirmationTimestamp: confirmation.timestamp,
+                experience: sessionData?.frame4?.experience,
+              });
+            }
+          });
+        });
 
-          switch (experience.toLowerCase()) {
-            case "bible quiz":
-              navigate("/countdown");
-              break;
-            case "video":
-              navigate("/video");
-              break;
-            case "mood detection":
-              navigate("/mood");
-              break;
-            default:
-              console.warn("Unknown experience:", experience);
-              break;
-          }
-        }
+        if (candidates.length === 0) return;
+
+        // Sort by earliest timestamp
+        candidates.sort((a, b) => a.confirmationTimestamp - b.confirmationTimestamp);
+        const session = candidates[0];
+        const fullPath = `userSessions/${session.userId}/${session.sessionKey}/confirmation`;
+
+        // Claim the session
+        update(ref(db, fullPath), { claimed: true })
+          .then(() => {
+            console.log("Claimed session:", session);
+            hasClaimed = true;
+
+            const experience = session.experience?.toLowerCase();
+            switch (experience) {
+              case "quiz":
+                navigate("/countdown");
+                break;
+              case "video":
+                navigate("/video");
+                break;
+              case "mood detection":
+                navigate("/mood");
+                break;
+              default:
+                console.warn("Unknown experience:", experience);
+                break;
+            }
+          })
+          .catch((error) => {
+            console.error("Failed to claim session:", error);
+          });
       });
-    }, 15000); // 15-second delay
+    }, 15000); // ~1-second delay
 
     return () => {
       clearInterval(animationInterval);

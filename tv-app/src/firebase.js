@@ -1,4 +1,4 @@
-// src/firebase.js
+
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {

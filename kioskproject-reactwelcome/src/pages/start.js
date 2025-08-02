@@ -49,7 +49,9 @@ const Start = () => {
     const sessionRef = ref(db, `userSessions/${userId}/${sessionId}/confirmation`);
     await set(sessionRef, {
       confirmed: true,
-      active: true,
+      ready: true,
+      claimed: false,
+      completed: false,
       timestamp: Date.now(),
     });
 
