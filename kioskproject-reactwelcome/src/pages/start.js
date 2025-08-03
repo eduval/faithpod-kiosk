@@ -58,7 +58,7 @@ const Start = () => {
     setStarted(true);
 
     // Optional: redirect to next page
-    // setTimeout(() => history.push('/thankyou', { sessionId }), 5000);
+    setTimeout(() => history.push('/'), 15000);
   };
 
   return (

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { getDatabase, ref, get, child } from 'firebase/database';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './QuizPage.css';
 
 function QuizPage() {
@@ -15,6 +15,8 @@ function QuizPage() {
   const [hasSubmittedResults, setHasSubmittedResults] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const sessionId = location.state?.sessionId;
 
   // Helper to pick 10 random questions
   const pickRandomQuestions = (questionsArray, num) => {
@@ -111,8 +113,9 @@ function QuizPage() {
       navigate('/quiz-result', { state: { score, total } });
 
       setTimeout(() => {
-        navigate('/thankyou');
-      }, 10000); // 3 seconds delay
+        console.log(sessionId);
+        navigate('/thankyou', { state: { sessionId: sessionId } });
+      }, 5000); // 3 seconds delay
     }
   }, [currentQuestionIndex, quizQuestions.length, navigate, score, hasSubmittedResults]);
 
