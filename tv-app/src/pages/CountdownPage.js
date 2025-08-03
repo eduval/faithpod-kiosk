@@ -1,18 +1,20 @@
 // src/pages/CountdownPage.js
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./CountdownPage.css";
 
 const CountdownPage = () => {
   const [count, setCount] = useState(5);
   const navigate = useNavigate();
-
+  const location = useLocation();
+  const sessionId = location.state?.sessionId;
+  console.log(sessionId);
   useEffect(() => {
     const timer = setInterval(() => {
       setCount(prev => {
         if (prev === 1) {
           clearInterval(timer);
-          setTimeout(() => navigate("/quiz"), 1000); // wait a sec before routing
+          setTimeout(() => navigate("/quiz", { state: { sessionId: sessionId } }), 1000); // wait a sec before routing
         }
         return prev - 1;
       });
