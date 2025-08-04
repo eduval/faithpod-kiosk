@@ -117,8 +117,8 @@ const WelcomePage = () => {
             setTimeout(async () => {
               try {
                 // Get the user inputs from Firebase
-                const userInputs = await getSessionInputs(session.sessionId);
-
+                const userInputs = await getSessionInputs(session.userId, session.sessionId);
+                console.log(userInputs);
                 // Calculate light colors based on user inputs
                 const lightColors = calculateLightColors(userInputs);
                 console.log(lightColors);
@@ -161,14 +161,15 @@ const WelcomePage = () => {
             console.error("❌ Failed to reserve session:", error);
           });
 
-        async function getSessionInputs(sessionId) {
+        async function getSessionInputs(userId, sessionId) {
+          console.log(sessionId)
           try {
             // Get only the specific fields we need
             const [favoriteColor, feelingToday, focusToday, mood] = await Promise.all([
-              get(ref(db, `userSessions/${sessionId}/frame2/FavouriteColor`)),
-              get(ref(db, `userSessions/${sessionId}/frame3/FeelingToday`)),
-              get(ref(db, `userSessions/${sessionId}/frame3/FocusToday`)),
-              get(ref(db, `userSessions/${sessionId}/mood/mood`))
+              get(ref(db, `userSessions/${userId}/${sessionId}/frame2/FavouriteColor`)),
+              get(ref(db, `userSessions/${userId}/${sessionId}/frame3/FeelingToday`)),
+              get(ref(db, `userSessions/${userId}/${sessionId}/frame3/FocusToday`)),
+              get(ref(db, `userSessions/${userId}/${sessionId}/mood/mood`))
             ]);
 
             return {

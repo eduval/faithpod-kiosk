@@ -21,9 +21,9 @@ async function sendColorToHueLight(lightId, colorState) {
 
     const payload = {
         on: true,
-        hue: colorState.hue,
-        sat: colorState.sat,
-        bri: colorState.bri,
+        hue: Math.round(colorState.hue * 182.04),
+        sat: Math.round(colorState.sat * 2.54),
+        bri: Math.round((colorState.bri / 100) * 254),
         transitiontime: 10
     };
 
