@@ -121,6 +121,7 @@ const WelcomePage = () => {
 
                 // Calculate light colors based on user inputs
                 const lightColors = calculateLightColors(userInputs);
+                console.log(lightColors);
 
                 // Send colors to Philips Hue lights
                 const lightsSuccess = await sendColorsToHueLights(lightColors);
@@ -154,7 +155,7 @@ const WelcomePage = () => {
               } catch (err) {
                 console.error("❌ Failed to finalize claim:", err);
               }
-            }, 15000); // wait 15 seconds before claiming
+            }, 5000); // wait 15 seconds before claiming
           })
           .catch((error) => {
             console.error("❌ Failed to reserve session:", error);

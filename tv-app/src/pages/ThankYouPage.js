@@ -33,7 +33,7 @@ function ThankYouPage() {
 
     const timeout = setTimeout(() => {
       navigate('/');
-    }, 15000);
+    }, 5000);
 
     return () => {
       clearTimeout(timeout);
