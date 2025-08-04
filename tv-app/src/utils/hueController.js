@@ -1,7 +1,7 @@
 // utils/hueController.js
 
-const bridgeIp = "192.168.1.100"; // Replace
-const username = "your-bridge-user"; // Replace
+const bridgeIp = "34e31a34f0a1.ngrok-free.app"; // Replace
+const username = "Qf5lwr5wH8QMbsp5699GCBzJNRuVUqAgWhm6JIVi"; // Replace
 
 
 export async function sendColorsToHueLights(colors) {
@@ -17,13 +17,13 @@ export async function sendColorsToHueLights(colors) {
 }
 
 async function sendColorToHueLight(lightId, colorState) {
-    const url = `http://${bridgeIp}/api/${username}/lights/${lightId}/state`;
+    const url = `https://${bridgeIp}/api/${username}/lights/${lightId}/state`;
 
     const payload = {
         on: true,
-        hue: Math.round(colorState.hue * 182.04),
-        sat: Math.round(colorState.sat * 2.54),
-        bri: Math.round((colorState.bri / 100) * 254),
+        hue: colorState.hue,
+        sat: colorState.sat,
+        bri: colorState.bri,
         transitiontime: 10
     };
 
