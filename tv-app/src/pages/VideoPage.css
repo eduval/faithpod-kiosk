@@ -1,53 +1,69 @@
 /* src/pages/VideoPage.css */
 
 .video-container {
-  background-color: #0f0f0f;
-  color: #ffffff;
-  min-height: 100vh;
-  padding: 40px 20px;
+  background-color: #121212;
+  color: #fff;
+  height: 100vh;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
-  font-family: 'Segoe UI', sans-serif;
 }
 
 .video-title {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #00bfff;
+  font-size: 4rem;
+  margin-bottom: 3rem;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 .video-options {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: center;
+  max-width: 1200px;
+  margin-bottom: 3rem;
 }
 
 .video-button {
-  padding: 14px 28px;
-  font-size: 1rem;
-  background-color: #00bfff;
+  background-color: #007acc;
   border: none;
-  border-radius: 8px;
-  color: #fff;
+  border-radius: 1rem;
+  color: white;
+  padding: 2rem 4rem;
+  font-size: 2.5rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  min-width: 280px;
+  transition: background-color 0.3s ease;
+  min-width: 300px;
+  box-shadow: 0 4px 10px rgba(0, 122, 204, 0.5);
 }
 
-.video-button:hover {
-  background-color: #009acd;
-  transform: scale(1.05);
+.video-button:hover,
+.video-button:focus {
+  background-color: #005fa3;
+  outline: none;
+  box-shadow: 0 6px 15px rgba(0, 95, 163, 0.8);
 }
 
 .video-player {
-  margin-top: 30px;
+  width: 90%;
+  max-width: 1400px;
+  height: 800px; /* larger height for TV */
+  margin: 0 auto;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+  background-color: black;
+  overflow: hidden;
 }
 
-iframe {
-  width: 90%;
-  max-width: 800px;
-  height: 450px;
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 191, 255, 0.4);
+#youtube-player iframe {
+  border-radius: 1.5rem;
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
 }
