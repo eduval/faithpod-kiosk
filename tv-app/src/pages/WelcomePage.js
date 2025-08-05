@@ -143,7 +143,7 @@ const WelcomePage = () => {
                     navigate("/countdown", { state: { sessionId: session.sessionId } });
                     break;
                   case "video":
-                    navigate("/video", { state: navState });
+                    navigate("/countdownVideo", { state: navState });
                     break;
                   case "mood detection":
                     navigate("/mood", { state: navState });
