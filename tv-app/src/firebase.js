@@ -1,5 +1,7 @@
 
+// src/firebase.js
 import { initializeApp } from "firebase/app";
+import { getDatabase } from "firebase/database"; // ✅ ADD THIS LINE
 
 const firebaseConfig = {
   apiKey: "AIzaSyCnbUwqdNXpX4SWnzvVcgdy6772O9cQzR0",
@@ -13,6 +15,10 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+
+// ✅ CREATE AND EXPORT THE DATABASE INSTANCE
+const database = getDatabase(app);
+export { database };
 
 export async function getServerTime() {
   try {

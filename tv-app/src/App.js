@@ -8,6 +8,8 @@ import MoodPage from "./pages/MoodPage";
 import CountdownPage from "./pages/CountdownPage";
 import ThankYouPage from './pages/ThankYouPage';
 import ResultPageQuiz from './pages/ResultPageQuiz.js';
+import CountdownPageVideo  from "./pages/CountdownPageVideo.js";
+
 const App = () => {
   return (
     <Routes>
@@ -19,6 +21,7 @@ const App = () => {
       <Route path="/mood" element={<MoodPage />} />
       <Route path="/thankyou" element={<ThankYouPage />} />
       <Route path="/quiz-result" element={<ResultPageQuiz />} />
+      <Route path = "/countdownVideo" element={<CountdownPageVideo />} />
     </Routes>
   );
 };

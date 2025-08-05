@@ -1,0 +1,53 @@
+/* src/pages/VideoPage.css */
+
+.video-container {
+  background-color: #0f0f0f;
+  color: #ffffff;
+  min-height: 100vh;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.video-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #00bfff;
+}
+
+.video-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.video-button {
+  padding: 14px 28px;
+  font-size: 1rem;
+  background-color: #00bfff;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  min-width: 280px;
+}
+
+.video-button:hover {
+  background-color: #009acd;
+  transform: scale(1.05);
+}
+
+.video-player {
+  margin-top: 30px;
+}
+
+iframe {
+  width: 90%;
+  max-width: 800px;
+  height: 450px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.4);
+}
