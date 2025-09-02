@@ -84,7 +84,10 @@ const VideoPage = () => {
         events: {
           onStateChange: (event) => {
             if (event.data === window.YT.PlayerState.ENDED) {
-              navigate("/thankyou");
+              setTimeout(() => {
+                console.log(sessionId);
+                navigate('/thankyou', { state: { sessionId: sessionId } });
+              }, 5000); // 3 seconds delay
             }
           },
         },
