@@ -1,6 +1,6 @@
 // utils/hueController.js
 
-const bridgeIp = "34e31a34f0a1.ngrok-free.app"; // Replace
+const bridgeIp = "c43dd73d3f75.ngrok-free.app"; // Replace
 const username = "Qf5lwr5wH8QMbsp5699GCBzJNRuVUqAgWhm6JIVi"; // Replace
 
 
