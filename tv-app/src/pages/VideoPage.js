@@ -99,7 +99,7 @@ const VideoPage = () => {
     } else {
       window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
     }
-  }, [selectedVideo, navigate]);
+  }, [selectedVideo, navigate, sessionId]);
 
   return (
     <div className="video-container">

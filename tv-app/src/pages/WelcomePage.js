@@ -145,8 +145,8 @@ const WelcomePage = () => {
                   case "video":
                     navigate("/countdownVideo", { state: navState });
                     break;
-                  case "mood detection":
-                    navigate("/mood", { state: navState });
+                  case "mood detection & verses":
+                    navigate("/countdownMood", { state: navState });
                     break;
                   default:
                     console.warn("⚠️ Unknown experience:", experience);

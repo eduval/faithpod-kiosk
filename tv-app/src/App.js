@@ -1,14 +1,15 @@
 // src/App.js
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import WelcomePage from "./pages/WelcomePage";
-import QuizPage from "./pages/QuizPage";  // You can create these pages later
-import VideoPage from "./pages/VideoPage";
-import MoodPage from "./pages/MoodPage";
-import CountdownPage from "./pages/CountdownPage";
-import ThankYouPage from './pages/ThankYouPage';
+import WelcomePage from "./pages/WelcomePage.js";
+import QuizPage from "./pages/QuizPage.js";  
+import VideoPage from "./pages/VideoPage.js";
+import MoodPage from "./pages/MoodPage.js";
+import CountdownPage from "./pages/CountdownPage.js";
+import ThankYouPage from './pages/ThankYouPage.js';
 import ResultPageQuiz from './pages/ResultPageQuiz.js';
 import CountdownPageVideo  from "./pages/CountdownPageVideo.js";
+import CountdownMood from "./pages/CountdownMood.js"
 
 const App = () => {
   return (
@@ -17,7 +18,7 @@ const App = () => {
       <Route path="/countdown" element={<CountdownPage />} /> {/* 👈 NEW ROUTE */}
       <Route path="/quiz" element={<QuizPage />} />
       <Route path="/video" element={<VideoPage />} />
-      
+      <Route path = "/countdownMood" element={<CountdownMood />} />
       <Route path="/mood" element={<MoodPage />} />
       <Route path="/thankyou" element={<ThankYouPage />} />
       <Route path="/quiz-result" element={<ResultPageQuiz />} />
