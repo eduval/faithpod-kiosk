@@ -1,0 +1,245 @@
+{
+  "bible_verses_by_mood": {
+    "0": {
+      "mood": "Happy",
+      "verses": [
+        {
+          "enabled": true,
+          "text": "Rejoice in the Lord always. (Philippians 4:4)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "This is the day the Lord has made; let us rejoice and be glad in it. (Psalm 118:24)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "The joy of the Lord is your strength. (Nehemiah 8:10)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "Sing to the Lord a new song, for he has done marvelous things. (Psalm 98:1)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "Be glad in the Lord and rejoice, you righteous. (Psalm 32:11)",
+          "version": "NIV"
+        }
+      ]
+    },
+    "1": {
+      "mood": "Sad",
+      "verses": [
+        {
+          "enabled": true,
+          "text": "The Lord is close to the brokenhearted. (Psalm 34:18)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "He heals the brokenhearted and binds up their wounds. (Psalm 147:3)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "Cast all your anxiety on him because he cares for you. (1 Peter 5:7)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "Come to me, all you who are weary and burdened, and I will give you rest. (Matthew 11:28)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "The Lord is my refuge and strength, an ever-present help in trouble. (Psalm 46:1)",
+          "version": "NIV"
+        }
+      ]
+    },
+    "2": {
+      "mood": "Angry",
+      "verses": [
+        {
+          "enabled": true,
+          "text": "In your anger do not sin. (Ephesians 4:26)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "A gentle answer turns away wrath, but a harsh word stirs up anger. (Proverbs 15:1)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "Do not let the sun go down while you are still angry. (Ephesians 4:26)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "Be quick to listen, slow to speak and slow to become angry. (James 1:19)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "Get rid of all bitterness, rage and anger. (Ephesians 4:31)",
+          "version": "NIV"
+        }
+      ]
+    },
+    "3": {
+      "mood": "Fear",
+      "verses": [
+        {
+          "enabled": true,
+          "text": "For God has not given us a spirit of fear. (2 Timothy 1:7)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "Do not fear, for I am with you. (Isaiah 41:10)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "Even though I walk through the darkest valley, I will fear no evil. (Psalm 23:4)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "The Lord is my light and my salvation—whom shall I fear? (Psalm 27:1)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "Peace I leave with you; my peace I give you. (John 14:27)",
+          "version": "NIV"
+        }
+      ]
+    },
+    "4": {
+      "mood": "Surprise",
+      "verses": [
+        {
+          "enabled": true,
+          "text": "The Lord works wonders for the faithful. (Psalm 77:14)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "Great is the Lord and most worthy of praise. (Psalm 145:3)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "For nothing will be impossible with God. (Luke 1:37)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "Your works are wonderful, I know that full well. (Psalm 139:14)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "Behold, I am doing a new thing! (Isaiah 43:19)",
+          "version": "NIV"
+        }
+      ]
+    },
+    "5": {
+      "mood": "Disgust",
+      "verses": [
+        {
+          "enabled": true,
+          "text": "Abhor what is evil; cling to what is good. (Romans 12:9)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "Keep me from deceitful ways; be gracious to me and teach me your law. (Psalm 119:29)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "Hate what is wrong; love what is right. (Amos 5:15)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "Turn away from evil and do good. (Psalm 34:14)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "The Lord detests the thoughts of the wicked. (Proverbs 15:26)",
+          "version": "NIV"
+        }
+      ]
+    },
+    "6": {
+      "mood": "Neutral",
+      "verses": [
+        {
+          "enabled": true,
+          "text": "Trust in the Lord with all your heart. (Proverbs 3:5)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "Commit to the Lord whatever you do, and he will establish your plans. (Proverbs 16:3)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "Let all that you do be done in love. (1 Corinthians 16:14)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "Do not be anxious about anything. (Philippians 4:6)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "Be still, and know that I am God. (Psalm 46:10)",
+          "version": "NIV"
+        }
+      ]
+    },
+    "7": {
+      "mood": "Other",
+      "verses": [
+        {
+          "enabled": true,
+          "text": "I can do all this through him who gives me strength. (Philippians 4:13)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "The Lord is my shepherd, I lack nothing. (Psalm 23:1)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "Cast your cares on the Lord and he will sustain you. (Psalm 55:22)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "Trust in the Lord forever, for the Lord, the Lord himself, is the Rock eternal. (Isaiah 26:4)",
+          "version": "NIV"
+        },
+        {
+          "enabled": true,
+          "text": "The Lord is good to all; he has compassion on all he has made. (Psalm 145:9)",
+          "version": "NIV"
+        }
+      ]
+    },
+    "id": "bible_verses_by_mood"
+  }
+}
