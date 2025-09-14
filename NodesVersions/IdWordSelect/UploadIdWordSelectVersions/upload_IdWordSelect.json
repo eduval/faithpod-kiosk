@@ -1,0 +1,92 @@
+{
+  "-OVV3Z17q8AT_aYqjl-3": {
+    "id": "-OVV3Z17q8AT_aYqjl-3",
+    "Enable": true,
+    "Mood_Classifier": "Ok",
+    "word_key": "Altar"
+  },
+  "-OVV3Z18R_aHACmNFxf9": {
+    "id": "-OVV3Z18R_aHACmNFxf9",
+    "Enable": false,
+    "Mood_Classifier": "Happy",
+    "word_key": "Blessing"
+  },
+  "-OVV3Z18R_aHACmNFxfA": {
+    "id": "-OVV3Z18R_aHACmNFxfA",
+    "Enable": true,
+    "Mood_Classifier": "Sad",
+    "word_key": "Candle"
+  },
+  "-OVV3Z18R_aHACmNFxfB": {
+    "id": "-OVV3Z18R_aHACmNFxfB",
+    "Enable": false,
+    "Mood_Classifier": "Ok",
+    "word_key": "Chapel"
+  },
+  "-OVV3Z18R_aHACmNFxfC": {
+    "id": "-OVV3Z18R_aHACmNFxfC",
+    "Enable": true,
+    "Mood_Classifier": "Happy",
+    "word_key": "Grace"
+  },
+  "-OVV3Z18R_aHACmNFxfD": {
+    "id": "-OVV3Z18R_aHACmNFxfD",
+    "Enable": false,
+    "Mood_Classifier": "Happy",
+    "word_key": "Harmony"
+  },
+  "-OVV3Z18R_aHACmNFxfE": {
+    "id": "-OVV3Z18R_aHACmNFxfE",
+    "Enable": true,
+    "Mood_Classifier": "Ok",
+    "word_key": "Haven"
+  },
+  "-OVV3Z18R_aHACmNFxfF": {
+    "id": "-OVV3Z18R_aHACmNFxfF",
+    "Enable": true,
+    "Mood_Classifier": "Happy",
+    "word_key": "Jubilant"
+  },
+  "-OVV3Z18R_aHACmNFxfG": {
+    "id": "-OVV3Z18R_aHACmNFxfG",
+    "Enable": false,
+    "Mood_Classifier": "Sad",
+    "word_key": "Lament"
+  },
+  "-OVV3Z18R_aHACmNFxfH": {
+    "id": "-OVV3Z18R_aHACmNFxfH",
+    "Enable": false,
+    "Mood_Classifier": "Ok",
+    "word_key": "Pew"
+  },
+  "-OVV3Z18R_aHACmNFxfI": {
+    "id": "-OVV3Z18R_aHACmNFxfI",
+    "Enable": true,
+    "Mood_Classifier": "Happy",
+    "word_key": "Radiance"
+  },
+  "-OVV3Z18R_aHACmNFxfJ": {
+    "id": "-OVV3Z18R_aHACmNFxfJ",
+    "Enable": true,
+    "Mood_Classifier": "Sad",
+    "word_key": "Reverence"
+  },
+  "-OVV3Z18R_aHACmNFxfK": {
+    "id": "-OVV3Z18R_aHACmNFxfK",
+    "Enable": true,
+    "Mood_Classifier": "Ok",
+    "word_key": "Sanctuary"
+  },
+  "-OVV3Z18R_aHACmNFxfL": {
+    "id": "-OVV3Z18R_aHACmNFxfL",
+    "Enable": false,
+    "Mood_Classifier": "Sad",
+    "word_key": "Silence"
+  },
+  "-OVV3Z18R_aHACmNFxfM": {
+    "id": "-OVV3Z18R_aHACmNFxfM",
+    "Enable": true,
+    "Mood_Classifier": "Sad",
+    "word_key": "Solace"
+  }
+}

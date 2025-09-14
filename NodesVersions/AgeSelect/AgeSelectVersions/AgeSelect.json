@@ -1,0 +1,18 @@
+{
+  "1": {
+    "AgeRange": "0-12",
+    "Enable": true
+  },
+  "2": {
+    "AgeRange": "13-25",
+    "Enable": true
+  },
+  "3": {
+    "AgeRange": "26-50",
+    "Enable": true
+  },
+  "4": {
+    "AgeRange": "51+",
+    "Enable": true
+  }
+}

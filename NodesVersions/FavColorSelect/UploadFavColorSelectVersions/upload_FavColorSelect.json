@@ -1,0 +1,73 @@
+{
+  "-OVUzYrkHfqb9BdTw7JE": {
+    "Color": "Blue",
+    "Enable": true,
+    "HEX": "#0000FF",
+    "hue": 46920,
+    "sat": 254,
+    "bri": 254,
+    "id": "-OVUzYrkHfqb9BdTw7JE"
+  },
+  "-OVUzYrlm8dqxxl8ZC_3": {
+    "Color": "Green",
+    "Enable": true,
+    "HEX": "#00FF00",
+    "hue": 25500,
+    "sat": 254,
+    "bri": 254,
+    "id": "-OVUzYrlm8dqxxl8ZC_3"
+  },
+  "-OVUzYrlm8dqxxl8ZC_4": {
+    "Color": "Orange",
+    "Enable": true,
+    "HEX": "#FFA500",
+    "hue": 10000,
+    "sat": 254,
+    "bri": 254,
+    "id": "-OVUzYrlm8dqxxl8ZC_4"
+  },
+  "-OVUzYrlm8dqxxl8ZC_5": {
+    "Color": "Pink",
+    "Enable": true,
+    "HEX": "#FFC0CB",
+    "hue": 56100,
+    "sat": 150,
+    "bri": 254,
+    "id": "-OVUzYrlm8dqxxl8ZC_5"
+  },
+  "-OVUzYrlm8dqxxl8ZC_6": {
+    "Color": "Purple",
+    "Enable": true,
+    "HEX": "#800080",
+    "hue": 50000,
+    "sat": 254,
+    "bri": 254,
+    "id": "-OVUzYrlm8dqxxl8ZC_6"
+  },
+  "-OVUzYrlm8dqxxl8ZC_7": {
+    "Color": "Red",
+    "Enable": true,
+    "HEX": "#FF0000",
+    "hue": 0,
+    "sat": 254,
+    "bri": 254,
+    "id": "-OVUzYrlm8dqxxl8ZC_7"
+  },
+  "-OVUzYrlm8dqxxl8ZC_8": {
+    "Color": "White",
+    "Enable": true,
+    "HEX": "#FFDAB9",
+    "ct": 370,
+    "bri": 254,
+    "id": "-OVUzYrlm8dqxxl8ZC_8"
+  },
+  "-OVUzYrlm8dqxxl8ZC_9": {
+    "Color": "Yellow",
+    "Enable": true,
+    "HEX": "#FFFF00",
+    "hue": 12750,
+    "sat": 254,
+    "bri": 254,
+    "id": "-OVUzYrlm8dqxxl8ZC_9"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "1": {
+    "Color": "Blue",
+    "Enable": true,
+    "HEX": "#0000FF"
+  },
+  "2": {
+    "Color": "Green",
+    "Enable": true,
+    "HEX": "#00FF00"
+  },
+  "3": {
+    "Color": "Orange",
+    "Enable": true,
+    "HEX": "#FFA500"
+  },
+  "4": {
+    "Color": "Pink",
+    "Enable": true,
+    "HEX": "#FFC0CB"
+  },
+  "5": {
+    "Color": "Purple",
+    "Enable": true,
+    "HEX": "#800080"
+  },
+  "6": {
+    "Color": "Red",
+    "Enable": true,
+    "HEX": "#FF0000"
+  },
+  "7": {
+    "Color": "White",
+    "Enable": true,
+    "HEX": "#FFDAB9"
+  },
+  "8": {
+    "Color": "Yellow",
+    "Enable": true,
+    "HEX": "#FFFF00"
+  }
+}

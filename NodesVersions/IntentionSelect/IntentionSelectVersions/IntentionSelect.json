@@ -1,0 +1,22 @@
+{
+  "1": {
+    "Enable": true,
+    "Focus": "Peace & Reflection"
+  },
+  "2": {
+    "Enable": true,
+    "Focus": "Love & Encouragement"
+  },
+  "3": {
+    "Enable": true,
+    "Focus": "Worship & Music"
+  },
+  "4": {
+    "Enable": true,
+    "Focus": "Bible Study"
+  },
+  "5": {
+    "Enable": true,
+    "Focus": "Nature & Gratitude"
+  }
+}

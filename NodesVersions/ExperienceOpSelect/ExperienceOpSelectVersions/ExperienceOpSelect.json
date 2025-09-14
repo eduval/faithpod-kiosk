@@ -1,0 +1,18 @@
+{
+  "1": {
+    "Enable": true,
+    "Experience": "Video"
+  },
+  "2": {
+    "Enable": true,
+    "Experience": "Quiz"
+  },
+  "3": {
+    "Enable": true,
+    "Experience": "Mood Detection & Verses"
+  },
+  "4": {
+    "Enable": false,
+    "Experience": "Games"
+  }
+}
