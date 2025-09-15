@@ -44,28 +44,49 @@ Object.entries(sourceData).forEach(([key, item]) => {
   const newKey = isFirebasePushId(key) ? key : push(ref(db)).key;
 
   // STEP 2 — END EDITABLE SECTION
-
   const updatedItem = {
     ...item,
     id: newKey
   };
 
   updatedData[newKey] = updatedItem;
+
+
 });
 
 // STEP 3 — Save the modified data to uploadTimeChurch.json
-const uploadPath = path.join("NodesVersions", nodeName, `Upload${nodeName}Versions`, `upload_${nodeName}.json`);
+
+// Define the target folder
+const targetDir = path.join("NodesVersions", nodeName, `Upload${nodeName}Versions`);
+
+// Minimal change: create folder if it doesn't exist
+if (!fs.existsSync(targetDir)) {
+  fs.mkdirSync(targetDir, { recursive: true });
+  console.log(`📁 Created folder structure: ${targetDir}`);
+}
+
+// Define the upload file path
+const uploadPath = path.join(targetDir, `upload_${nodeName}.json`);
+
+// Save the modified data
 fs.writeFileSync(uploadPath, JSON.stringify(updatedData, null, 2));
 
 // Confirm the result
 console.log(`✅ upload_${nodeName}.json saved.`);
 
 
-//COMANDLINES + NODES to execute this script
+// COMMAND LINES + NODES to execute this script
 // node seedNode.js AgeSelect
-// node seedNode.js TimeChurchSelect
 // node seedNode.js ExperienceOpSelect
 // node seedNode.js FavColorSelect
 // node seedNode.js IdWordSelect
 // node seedNode.js IntentionSelect
+// node seedNode.js Settings
+// node seedNode.js TimeChurchSelect
+// node seedNode.js UserSessions
+// node seedNode.js VideoSelect
+// node seedNode.js WelcomePhrases
+// node seedNode.js bible_questions
+// node seedNode.js bible_verses_moods
+// node seedNode.js sessions
 // node seedNode.js userSessions

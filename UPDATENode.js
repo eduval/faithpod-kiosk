@@ -43,11 +43,18 @@ upload().catch((err) => {
 // for next steps -
   // - Implement versioning for timeChurch.json to keep track of changes
 
-//COMANDLINES + NODES to execute this script
+// COMMAND LINES + NODES to execute this script
 // node updateNode.js AgeSelect
-// node updateNode.js TimeChurchSelect
 // node updateNode.js ExperienceOpSelect
 // node updateNode.js FavColorSelect
 // node updateNode.js IdWordSelect
 // node updateNode.js IntentionSelect
+// node updateNode.js Settings
+// node updateNode.js TimeChurchSelect
+// node updateNode.js UserSessions
+// node updateNode.js VideoSelect
+// node updateNode.js WelcomePhrases
+// node updateNode.js bible_questions
+// node updateNode.js bible_verses_moods
+// node updateNode.js sessions
 // node updateNode.js userSessions
