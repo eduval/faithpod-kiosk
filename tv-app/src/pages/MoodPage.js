@@ -1,19 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { startWebcam, analyzeMood, video } from "./MoodDetector";
+import { useNavigate, useLocation } from 'react-router-dom';
 import "./MoodPage.css";
 
 export default function MoodPage({ onFinish }) {
-  const [step, setStep] = useState("ready"); // ready → countdown → choose → preloader → avatar → done
-  const [count, setCount] = useState(3);
-  const [moodOptions, setMoodOptions] = useState([]);
+  const [step, setStep] = useState("ready");
+  const [count, setCount] = useState(7);
   const [avatarUrl, setAvatarUrl] = useState(null);
   const [error, setError] = useState(null);
 
+  const navigate = useNavigate();
+  const location = useLocation();
+  const sessionId = location.state?.sessionId;
+
+  const PLACEHOLDER_URL =
+    "https://dummyimage.com/512x512/cccccc/000000.png&text=Avatar";
+
+  // Start webcam → go straight to countdown
   useEffect(() => {
-    startWebcam();
+    (async () => {
+      await startWebcam();
+      setStep("countdown");
+    })();
   }, []);
 
-  // Countdown + analyze mood
+  // Countdown + capture + avatar generation
   useEffect(() => {
     if (step === "countdown" && count > 0) {
       const timer = setTimeout(() => setCount((prev) => prev - 1), 1000);
@@ -21,134 +32,129 @@ export default function MoodPage({ onFinish }) {
     }
 
     if (step === "countdown" && count === 0) {
-      (async () => {
-        const results = await analyzeMood(); // returns 3 moods
-        console.log("All attempts:", results);
+      setStep("flash");
 
-        if (!results || results.length === 0) {
-          setMoodOptions([{ mood: "happy", confidence: 0, snapshot: null }]);
-        } else {
-          setMoodOptions(results.slice(0, 2)); // show first 2
+      setTimeout(async () => {
+        setStep("preloader");
+        try {
+          const results = await analyzeMood(video);
+          const mood = results?.[0]?.mood || "happy";
+          const snapshot = results?.[0]?.snapshot || null;
+
+          // 🔍 Debug: ver qué se manda
+          console.log("Sending to PHP:", { mood, snapshot: snapshot?.substring(0, 50) });
+          console.log("Snapshot length:", snapshot?.length);
+
+          let url = PLACEHOLDER_URL;
+
+          if (snapshot) {
+            const res = await fetch("https://ited.org.ec/faith/generate_avatar1.php", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ mood, image: snapshot }),
+            });
+
+            console.log("PHP response status:", res.status);
+
+            let data = null;
+            try {
+              data = await res.json();
+            } catch (parseError) {
+              console.error("❌ Error parsing JSON from PHP:", parseError);
+            }
+
+            console.log("PHP response data:", data);
+
+            url = data?.data?.[0]?.url || PLACEHOLDER_URL;
+
+            if (data?.error) {
+              console.warn("PHP error:", data.error);
+              setError("Avatar generation unavailable. Using placeholder.");
+            }
+          } else {
+            console.warn("⚠ No snapshot available, sending placeholder");
+            setError("No face detected. Using placeholder avatar.");
+          }
+
+          setAvatarUrl(url);
+          setStep("avatar");
+
+          setTimeout(() => {
+            console.log(sessionId);
+            navigate('/thankyou', { state: { sessionId: sessionId } });
+          }, 10000); // 3 seconds delay
+
+        } catch (err) {
+          console.error("Avatar generation failed:", err);
+          setError("Avatar creation failed. Using placeholder.");
+          setAvatarUrl(PLACEHOLDER_URL);
+          setStep("avatar");
+
+          setTimeout(() => {
+            console.log(sessionId);
+            navigate('/thankyou', { state: { sessionId: sessionId } });
+          }, 10000); // 3 seconds delay
         }
-        setStep("choose");
-      })();
+      }, 1000); // flash lasts 1s
     }
   }, [count, step]);
 
-  const handleChoice = async (choice) => {
-    try {
-      setError(null);
-      setStep("preloader");
-
-      // ⚠ Put your API key here (temporary, insecure!)
-      const OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
-      // --- Call OpenAI Images API (DALL·E) ---
-      const dalleRes = await fetch("https://api.openai.com/v1/images/generations", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${OPENAI_API_KEY}`,
-        },
-        body: JSON.stringify({
-          model: "gpt-image-1",
-          prompt:`A cartoon-style avatar of a person who is feeling ${choice.mood}`,
-          size: "512x512",
-          n: 1
-        }),
-      });
-
-      if (!dalleRes.ok) throw new Error("DALL·E request failed");
-      const data = await dalleRes.json();
-      const url = data.data[0].url;
-
-      setAvatarUrl(url);
-      setStep("avatar");
-
-      setTimeout(() => {
-        setStep("done");
-        onFinish();
-      }, 20000);
-    } catch (err) {
-      console.error("Avatar generation failed:", err);
-      setError("Avatar creation failed. Please try again.");
-      setStep("choose");
-    }
-  };
-
   return (
-    <div className="mood-page">
-      {/* Ready state */}
-      {step === "ready" && (
-        <div className="countdown">
-          <h2>Get ready, position yourself in the frame</h2>
-          <video
-            ref={(el) => el && (el.srcObject = video.srcObject)}
-            autoPlay
-            muted
-            playsInline
-            style={{ width: "400px", borderRadius: "12px" }}
-          />
-          <button onClick={() => setStep("countdown")}>Start</button>
-        </div>
-      )}
+    <div className="mood-container">
+      {/* Countdown Frame */}
+      {(step === "countdown" || step === "ready") && (
+        <div className="preloader">
+          {/* Text on top */}
+          <div className="preloader-text">
+            <h2 className="preloader-title">
+              Welcome to Circle of Nations
+            </h2>
 
-      {/* Countdown state */}
-      {step === "countdown" && (
-        <div className="countdown">
-          <h2>Scanning your mood...</h2>
-          <video
-            ref={(el) => el && (el.srcObject = video.srcObject)}
-            autoPlay
-            muted
-            playsInline
-            style={{ width: "400px", borderRadius: "12px" }}
-          />
-          <div className="count-overlay">{count}</div>
-        </div>
-      )}
-
-      {/* Choose mood */}
-      {step === "choose" && (
-        <div className="choose-mood">
-          <h2>Select your mood for the avatar</h2>
-          {error && <p className="error">{error}</p>}
-          <div className="mood-options">
-            {moodOptions.map((m, i) => {
-              const mood = m.mood || "happy";
-              const confidence =
-                m.confidence && !isNaN(m.confidence)
-                  ? Math.round(m.confidence * 100)
-                  : 0;
-              return (
-                <div
-                  key={i}
-                  className="mood-card"
-                  onClick={() => handleChoice(m)}
-                >
-                  {m.snapshot && <img src={m.snapshot} alt={`Mood ${i + 1}`} />}
-                  <p>
-                    {mood} ({confidence}%)
-                  </p>
-                </div>
-              );
-            })}
           </div>
+
+          {/* Video */}
+          <video
+            ref={(el) => el && (el.srcObject = video.srcObject)}
+            autoPlay
+            muted
+            playsInline
+            className="video-full"
+          />
+
+          {/* Countdown number */}
+          <div className="count-overlay">{count > 0 ? count : ""}</div>
         </div>
       )}
+
+      {/* Flash Effect */}
+      {step === "flash" && <div className="flash-overlay"></div>}
 
       {/* Preloader */}
       {step === "preloader" && (
         <div className="preloader">
-          <p>Creating your avatar... Please wait</p>
+          <h2 className="preloader-title">
+            Creating your avatar... Please wait
+          </h2>
+          <h3 className="preloader-subtitle">
+            Thank you for coming to{" "}
+            <span className="highlight">Circle of Nations</span>, God bless you 🙏
+          </h3>
           <div className="spinner"></div>
         </div>
       )}
 
-      {/* Avatar display */}
+      {/* Avatar */}
       {step === "avatar" && (
         <div className="avatar-screen">
-          <h2>Welcome to Circle of Nations!!</h2>
-          <img src={avatarUrl} alt="Avatar" />
+          <h2 className="avatar-title">
+            Welcome to <span className="highlight">Circle of Nations</span>!!
+          </h2>
+          <img
+            src={avatarUrl || PLACEHOLDER_URL}
+            alt="Avatar"
+            className="avatar-image"
+          />
+          {error && <p className="error">{error}</p>}
         </div>
       )}
     </div>

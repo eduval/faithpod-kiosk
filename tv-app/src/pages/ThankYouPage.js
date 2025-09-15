@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import './ThankyouPage.css';
 import { getDatabase, ref, update } from 'firebase/database';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import './ThankyouPage.css'; // use the refined CSS
 
 function ThankYouPage() {
   const navigate = useNavigate();
   const location = useLocation();
   const sessionId = location.state?.sessionId;
-  console.log(sessionId);
+
   useEffect(() => {
     const auth = getAuth();
 
@@ -25,8 +25,6 @@ function ThankYouPage() {
             console.error('❌ Error marking session complete:', error);
           });
       } else {
-        console.log(sessionId);
-        console.log(user);
         console.warn('⚠️ Missing user or sessionId. Cannot mark session complete.');
       }
     });
@@ -39,19 +37,26 @@ function ThankYouPage() {
       clearTimeout(timeout);
       unsubscribe(); // cleanup auth listener
     };
-  }, [navigate]);
+  }, [navigate, sessionId]);
 
   return (
-    <div className="thankyou-wrapper">
-      <img src="/image1012103-b1wj-900h.png" alt="Background" className="background-image" />
-      <div className="centered-rectangle">
-        <img src="/rectangle1314-uyh-600h.png" alt="Message box" className="rectangle-image" />
-        <img src="/image124-zjov-400w.png" alt="Inner decoration" className="inside-image" />
-        <div className="thankyou-text">
-          <h1>Thank you!</h1>
-          <p>We hope you had fun!</p>
-          <p>See you again soon.</p>
-        </div>
+    <div className="thankyou-container">
+      <img
+        src="/image1012103-b1wj-900h.png"
+        alt="Background"
+        className="thankyou-bg"
+      />
+      <div className="thankyou-rectangle">
+        <img
+          src="/image124-zjov-400w.png"
+          alt="Thank You Icon"
+          className="thankyou-icon"
+        />
+        <h1 className="thankyou-title">Thank You!</h1>
+        <p className="thankyou-message">We hope you had fun!</p>
+        <p className="thankyou-subtext">
+          See you again soon.<br />God bless you
+        </p>
       </div>
     </div>
   );
