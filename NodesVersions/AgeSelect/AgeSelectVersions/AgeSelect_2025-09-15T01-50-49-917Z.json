@@ -1,0 +1,22 @@
+{
+  "-OVUXF0H5qG1d9TBfs0V": {
+    "AgeRange": "0-12",
+    "Enable": true,
+    "id": "-OVUXF0H5qG1d9TBfs0V"
+  },
+  "-OVUXF0I79Qv112ZfMCT": {
+    "AgeRange": "13-25",
+    "Enable": true,
+    "id": "-OVUXF0I79Qv112ZfMCT"
+  },
+  "-OVUXF0I79Qv112ZfMCU": {
+    "AgeRange": "26-50",
+    "Enable": true,
+    "id": "-OVUXF0I79Qv112ZfMCU"
+  },
+  "-OVUXF0I79Qv112ZfMCV": {
+    "AgeRange": "51+",
+    "Enable": true,
+    "id": "-OVUXF0I79Qv112ZfMCV"
+  }
+}

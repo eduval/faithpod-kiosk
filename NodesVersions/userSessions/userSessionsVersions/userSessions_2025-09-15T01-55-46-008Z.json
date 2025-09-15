@@ -1,0 +1,1330 @@
+{
+  "l2El2eVVg7dpHLOK9TkWS3a933k1": {
+    "session_2025-08-05T18-04-42-906Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": false,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1754417112260
+      },
+      "frame2": {
+        "AgeRange": "13-25",
+        "ChurchDuration": "1-5",
+        "FavouriteColor": "Orange",
+        "timestamp": "2025-08-05T18:04:57.165Z"
+      },
+      "frame3": {
+        "FeelingToday": "Overwhelmed",
+        "FocusToday": "Peace & Reflection",
+        "timestamp": 1754417102887
+      },
+      "frame4": {
+        "experience": "Video",
+        "experienceId": "-OVVHbKqBu-J7fOc9n-A",
+        "timestamp": 1754417106026
+      },
+      "mood": {
+        "confidence": 0.9996059238910675,
+        "mood": "happy",
+        "timestamp": 1754417115375
+      },
+      "sessionStart": {
+        "timestamp": 1754417082909
+      }
+    },
+    "session_2025-08-05T18-05-27-618Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": true,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1754417211076
+      },
+      "frame2": {
+        "AgeRange": "51+",
+        "ChurchDuration": "1-5",
+        "FavouriteColor": "Green",
+        "timestamp": "2025-08-05T18:06:44.125Z"
+      },
+      "frame3": {
+        "FeelingToday": "Joyful",
+        "FocusToday": "Peace & Reflection",
+        "timestamp": 1754417207889
+      },
+      "frame4": {
+        "experience": "Quiz",
+        "experienceId": "-OVVHbKr-Ur1oWopRJPp",
+        "timestamp": 1754417208776
+      },
+      "mood": {
+        "confidence": 1,
+        "mood": "happy",
+        "timestamp": 1754417213124
+      },
+      "sessionStart": {
+        "timestamp": 1754417127618
+      }
+    },
+    "session_2025-08-05T18-07-06-450Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": true,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1754417403406
+      },
+      "frame2": {
+        "AgeRange": "51+",
+        "ChurchDuration": "10+",
+        "FavouriteColor": "Green",
+        "timestamp": "2025-08-05T18:09:56.476Z"
+      },
+      "frame3": {
+        "FeelingToday": "Joyful",
+        "FocusToday": "Peace & Reflection",
+        "timestamp": 1754417400067
+      },
+      "frame4": {
+        "experience": "Video",
+        "experienceId": "-OVVHbKqBu-J7fOc9n-A",
+        "timestamp": 1754417400909
+      },
+      "mood": {
+        "confidence": 0.989870289961497,
+        "mood": "happy",
+        "timestamp": 1754417405444
+      },
+      "sessionStart": {
+        "timestamp": 1754417226451
+      }
+    },
+    "session_2025-08-05T18-10-18-780Z": {
+      "sessionStart": {
+        "timestamp": 1754417418781
+      }
+    },
+    "session_2025-08-06T15-40-16-496Z": {
+      "sessionStart": {
+        "timestamp": 1754494816505
+      }
+    },
+    "session_2025-08-06T15-45-21-964Z": {
+      "sessionStart": {
+        "timestamp": 1754495122047
+      }
+    },
+    "session_2025-08-06T15-45-51-906Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": true,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1754495192572
+      },
+      "frame2": {
+        "AgeRange": "13-25",
+        "ChurchDuration": "1-5",
+        "FavouriteColor": "Green",
+        "timestamp": "2025-08-06T15:46:24.311Z"
+      },
+      "frame3": {
+        "FeelingToday": "Overwhelmed",
+        "FocusToday": "Love & Encouragement",
+        "timestamp": 1754495186803
+      },
+      "frame4": {
+        "experience": "Quiz",
+        "experienceId": "-OVVHbKr-Ur1oWopRJPp",
+        "timestamp": 1754495189073
+      },
+      "mood": {
+        "confidence": 0.5278297662734985,
+        "mood": "neutral",
+        "timestamp": 1754495211905
+      },
+      "sessionStart": {
+        "timestamp": 1754495151936
+      }
+    },
+    "session_2025-08-06T15-46-49-283Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": true,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1754496960477
+      },
+      "frame2": {
+        "AgeRange": "26-50",
+        "ChurchDuration": "0-1",
+        "FavouriteColor": "Blue",
+        "timestamp": "2025-08-06T16:15:30.182Z"
+      },
+      "frame3": {
+        "FeelingToday": "Confused",
+        "FocusToday": "Peace & Reflection",
+        "timestamp": 1754496945958
+      },
+      "frame4": {
+        "experience": "Quiz",
+        "experienceId": "-OVVHbKr-Ur1oWopRJPp",
+        "timestamp": 1754496956718
+      },
+      "mood": {
+        "confidence": 1,
+        "mood": "happy",
+        "timestamp": 1754496961858
+      },
+      "sessionStart": {
+        "timestamp": 1754495209307
+      }
+    },
+    "session_2025-08-06T16-16-16-301Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": true,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1754497060682
+      },
+      "frame2": {
+        "AgeRange": "26-50",
+        "ChurchDuration": "1-5",
+        "FavouriteColor": "Blue",
+        "timestamp": "2025-08-06T16:17:25.521Z"
+      },
+      "frame3": {
+        "FeelingToday": "Troubled",
+        "FocusToday": "Nature & Gratitude",
+        "timestamp": 1754497054576
+      },
+      "frame4": {
+        "experience": "Video",
+        "experienceId": "-OVVHbKqBu-J7fOc9n-A",
+        "timestamp": 1754497056509
+      },
+      "mood": {
+        "confidence": 1,
+        "mood": "happy",
+        "timestamp": 1754497061027
+      },
+      "sessionStart": {
+        "timestamp": 1754496976304
+      }
+    },
+    "session_2025-08-06T16-17-56-305Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": true,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1754497268661
+      },
+      "frame2": {
+        "AgeRange": "26-50",
+        "ChurchDuration": "5-10",
+        "FavouriteColor": "Purple",
+        "timestamp": "2025-08-06T16:21:00.466Z"
+      },
+      "frame3": {
+        "FeelingToday": "Grateful",
+        "FocusToday": "Love & Encouragement",
+        "timestamp": 1754497264189
+      },
+      "frame4": {
+        "experience": "Quiz",
+        "experienceId": "-OVVHbKr-Ur1oWopRJPp",
+        "timestamp": 1754497265763
+      },
+      "mood": {
+        "confidence": 1,
+        "mood": "happy",
+        "timestamp": 1754497270994
+      },
+      "sessionStart": {
+        "timestamp": 1754497076309
+      }
+    },
+    "session_2025-08-06T16-21-24-655Z": {
+      "frame2": {
+        "AgeRange": "13-25",
+        "ChurchDuration": "1-5",
+        "FavouriteColor": "Red",
+        "timestamp": "2025-08-06T16:24:39.895Z"
+      },
+      "frame3": {
+        "FeelingToday": "Confused",
+        "FocusToday": "Peace & Reflection",
+        "timestamp": 1754497482219
+      },
+      "sessionStart": {
+        "timestamp": 1754497284657
+      }
+    },
+    "session_2025-08-06T17-02-44-494Z": {
+      "frame2": {
+        "AgeRange": "0-12",
+        "ChurchDuration": "0-1",
+        "FavouriteColor": "Green",
+        "timestamp": "2025-08-06T17:02:52.347Z"
+      },
+      "sessionStart": {
+        "timestamp": 1754499764498
+      }
+    },
+    "session_2025-08-06T17-47-12-132Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": false,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1754502445400
+      },
+      "frame2": {
+        "AgeRange": "13-25",
+        "ChurchDuration": "5-10",
+        "FavouriteColor": "Purple",
+        "timestamp": "2025-08-06T17:47:17.919Z"
+      },
+      "frame3": {
+        "FeelingToday": "Grateful",
+        "FocusToday": "Love & Encouragement",
+        "timestamp": 1754502442480
+      },
+      "frame4": {
+        "experience": "Quiz",
+        "experienceId": "-OVVHbKr-Ur1oWopRJPp",
+        "timestamp": 1754502443334
+      },
+      "mood": {
+        "confidence": 0.7769316136837006,
+        "mood": "neutral",
+        "timestamp": 1754502464339
+      },
+      "sessionStart": {
+        "timestamp": 1754502432135
+      }
+    },
+    "session_2025-08-06T17-47-41-428Z": {
+      "sessionStart": {
+        "timestamp": 1754502461428
+      }
+    },
+    "session_2025-08-10T02-32-17-999Z": {
+      "sessionStart": {
+        "timestamp": 1754793138001
+      }
+    },
+    "session_2025-08-12T01-05-48-227Z": {
+      "sessionStart": {
+        "timestamp": 1754960748230
+      }
+    },
+    "session_2025-08-14T00-15-23-961Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": false,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1755130593564
+      },
+      "frame2": {
+        "AgeRange": "26-50",
+        "ChurchDuration": "0-1",
+        "FavouriteColor": "Green",
+        "timestamp": "2025-08-14T00:15:38.687Z"
+      },
+      "frame3": {
+        "FeelingToday": "Grateful",
+        "FocusToday": "Worship & Music",
+        "timestamp": 1755130574161
+      },
+      "frame4": {
+        "experience": "Quiz",
+        "experienceId": "-OVVHbKr-Ur1oWopRJPp",
+        "timestamp": 1755130578047
+      },
+      "mood": {
+        "confidence": 1,
+        "mood": "happy",
+        "timestamp": 1755130593454
+      },
+      "sessionStart": {
+        "timestamp": 1755130523965
+      }
+    },
+    "session_2025-09-01T20-20-03-052Z": {
+      "sessionStart": {
+        "timestamp": 1756758003054
+      }
+    },
+    "session_2025-09-01T20-20-12-469Z": {
+      "sessionStart": {
+        "timestamp": 1756758012470
+      }
+    },
+    "session_2025-09-02T17-01-49-319Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": false,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1756832699581
+      },
+      "frame2": {
+        "AgeRange": "51+",
+        "ChurchDuration": "1-5",
+        "FavouriteColor": "Orange",
+        "timestamp": "2025-09-02T17:01:56.569Z"
+      },
+      "frame3": {
+        "FeelingToday": "Grateful",
+        "FocusToday": "Love & Encouragement",
+        "timestamp": 1756832519487
+      },
+      "frame4": {
+        "experience": "Mood Detection & Verses",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1756832678551
+      },
+      "mood": {
+        "confidence": 0.5001041082650772,
+        "mood": "happy",
+        "timestamp": 1756832699426
+      },
+      "sessionStart": {
+        "timestamp": 1756832509321
+      }
+    },
+    "session_2025-09-02T17-05-14-928Z": {
+      "sessionStart": {
+        "timestamp": 1756832714929
+      }
+    },
+    "session_2025-09-08T16-21-41-964Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": true,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757348608102
+      },
+      "frame2": {
+        "AgeRange": "13-25",
+        "ChurchDuration": "5-10",
+        "FavouriteColor": "Green",
+        "timestamp": "2025-09-08T16:22:05.070Z"
+      },
+      "frame3": {
+        "FeelingToday": "Overwhelmed",
+        "FocusToday": "Peace & Reflection",
+        "timestamp": 1757348527842
+      },
+      "frame4": {
+        "experience": "Quiz",
+        "experienceId": "-OVVHbKr-Ur1oWopRJPp",
+        "timestamp": 1757348605186
+      },
+      "mood": {
+        "confidence": 1,
+        "mood": "happy",
+        "timestamp": 1757348620234
+      },
+      "sessionStart": {
+        "timestamp": 1757348501965
+      }
+    },
+    "session_2025-09-08T16-23-43-460Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": false,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757348760534
+      },
+      "frame2": {
+        "AgeRange": "13-25",
+        "ChurchDuration": "5-10",
+        "FavouriteColor": "Orange",
+        "timestamp": "2025-09-08T16:24:35.720Z"
+      },
+      "frame3": {
+        "FeelingToday": "Troubled",
+        "FocusToday": "Bible Study",
+        "timestamp": 1757348679045
+      },
+      "frame4": {
+        "experience": "Mood Detection & Verses",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1757348757668
+      },
+      "mood": {
+        "confidence": 1,
+        "mood": "happy",
+        "timestamp": 1757348762048
+      },
+      "sessionStart": {
+        "timestamp": 1757348623461
+      }
+    },
+    "session_2025-09-08T16-26-15-905Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": false,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757349072838
+      },
+      "frame2": {
+        "AgeRange": "26-50",
+        "ChurchDuration": "1-5",
+        "FavouriteColor": "Orange",
+        "timestamp": "2025-09-08T16:28:01.452Z"
+      },
+      "frame3": {
+        "FeelingToday": "Troubled",
+        "FocusToday": "Love & Encouragement",
+        "timestamp": 1757348883974
+      },
+      "frame4": {
+        "experience": "mood detection",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1757349065284
+      },
+      "mood": {
+        "confidence": 0.9994973142941793,
+        "mood": "neutral",
+        "timestamp": 1757349075950
+      },
+      "sessionStart": {
+        "timestamp": 1757348775906
+      }
+    },
+    "session_2025-09-08T16-31-28-082Z": {
+      "frame2": {
+        "AgeRange": "26-50",
+        "ChurchDuration": "5-10",
+        "FavouriteColor": "Orange",
+        "timestamp": "2025-09-08T16:32:56.517Z"
+      },
+      "frame3": {
+        "FeelingToday": "Troubled",
+        "FocusToday": "Love & Encouragement",
+        "timestamp": 1757349178742
+      },
+      "sessionStart": {
+        "timestamp": 1757349088083
+      }
+    },
+    "session_2025-09-08T18-28-21-510Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": false,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757356190059
+      },
+      "frame2": {
+        "AgeRange": "13-25",
+        "ChurchDuration": "0-1",
+        "FavouriteColor": "Blue",
+        "timestamp": "2025-09-08T18:28:31.943Z"
+      },
+      "frame3": {
+        "FeelingToday": "Peaceful",
+        "FocusToday": "Love & Encouragement",
+        "timestamp": 1757356116365
+      },
+      "frame4": {
+        "experience": "Mood detection & Verses",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1757356187219
+      },
+      "mood": {
+        "confidence": 0.5402740438779196,
+        "mood": "neutral",
+        "timestamp": 1757356205869
+      },
+      "sessionStart": {
+        "timestamp": 1757356101513
+      }
+    },
+    "session_2025-09-08T18-30-06-156Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": false,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757356306714
+      },
+      "frame2": {
+        "AgeRange": "0-12",
+        "ChurchDuration": "0-1",
+        "FavouriteColor": "Green",
+        "timestamp": "2025-09-08T18:31:38.432Z"
+      },
+      "frame3": {
+        "FeelingToday": "Peaceful",
+        "FocusToday": "Peace & Reflection",
+        "timestamp": 1757356303148
+      },
+      "frame4": {
+        "experience": "Mood detection & Verses",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1757356304549
+      },
+      "mood": {
+        "confidence": 1,
+        "mood": "happy",
+        "timestamp": 1757356309302
+      },
+      "sessionStart": {
+        "timestamp": 1757356206156
+      }
+    },
+    "session_2025-09-08T18-32-02-175Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": false,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757357380490
+      },
+      "frame2": {
+        "AgeRange": "0-12",
+        "ChurchDuration": "0-1",
+        "FavouriteColor": "Blue",
+        "timestamp": "2025-09-08T18:49:29.666Z"
+      },
+      "frame3": {
+        "FeelingToday": "Peaceful",
+        "FocusToday": "Peace & Reflection",
+        "timestamp": 1757357373706
+      },
+      "frame4": {
+        "experience": "Mood detection & Verses",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1757357375402
+      },
+      "mood": {
+        "confidence": 1,
+        "mood": "happy",
+        "timestamp": 1757357380588
+      },
+      "sessionStart": {
+        "timestamp": 1757356322176
+      }
+    },
+    "session_2025-09-08T18-49-56-134Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": false,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757358562725
+      },
+      "frame2": {
+        "AgeRange": "0-12",
+        "ChurchDuration": "0-1",
+        "FavouriteColor": "Blue",
+        "timestamp": "2025-09-08T19:09:15.356Z"
+      },
+      "frame3": {
+        "FeelingToday": "Peaceful",
+        "FocusToday": "Peace & Reflection",
+        "timestamp": 1757358559344
+      },
+      "frame4": {
+        "experience": "Mood detection & Verses",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1757358560536
+      },
+      "mood": {
+        "confidence": 0.9576798876126608,
+        "mood": "neutral",
+        "timestamp": 1757358565994
+      },
+      "sessionStart": {
+        "timestamp": 1757357396135
+      }
+    },
+    "session_2025-09-08T19-09-38-263Z": {
+      "sessionStart": {
+        "timestamp": 1757358578263
+      }
+    },
+    "session_2025-09-08T22-12-40-325Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": false,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757369610109
+      },
+      "frame2": {
+        "AgeRange": "0-12",
+        "ChurchDuration": "0-1",
+        "FavouriteColor": "Blue",
+        "timestamp": "2025-09-08T22:13:19.409Z"
+      },
+      "frame3": {
+        "FeelingToday": "Peaceful",
+        "FocusToday": "Peace & Reflection",
+        "timestamp": 1757369605632
+      },
+      "frame4": {
+        "experience": "Mood detection & Verses",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1757369607266
+      },
+      "mood": {
+        "confidence": 1,
+        "mood": "happy",
+        "timestamp": 1757369617208
+      },
+      "sessionStart": {
+        "timestamp": 1757369560333
+      }
+    },
+    "session_2025-09-08T22-13-45-378Z": {
+      "sessionStart": {
+        "timestamp": 1757369625379
+      }
+    },
+    "session_2025-09-09T06-34-51-549Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": false,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757399709977
+      },
+      "frame2": {
+        "AgeRange": "0-12",
+        "ChurchDuration": "0-1",
+        "FavouriteColor": "Blue",
+        "timestamp": "2025-09-09T06:34:57.874Z"
+      },
+      "frame3": {
+        "FeelingToday": "Peaceful",
+        "FocusToday": "Peace & Reflection",
+        "timestamp": 1757399702323
+      },
+      "frame4": {
+        "experience": "Mood detection & Verses",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1757399703457
+      },
+      "mood": {
+        "confidence": 0.8228498697280884,
+        "mood": "neutral",
+        "timestamp": 1757399717988
+      },
+      "sessionStart": {
+        "timestamp": 1757399691564
+      }
+    },
+    "session_2025-09-09T06-35-26-353Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": false,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757402511775
+      },
+      "frame2": {
+        "AgeRange": "0-12",
+        "ChurchDuration": "0-1",
+        "FavouriteColor": "Blue",
+        "timestamp": "2025-09-09T07:21:44.147Z"
+      },
+      "frame3": {
+        "FeelingToday": "Peaceful",
+        "FocusToday": "Peace & Reflection",
+        "timestamp": 1757402507605
+      },
+      "frame4": {
+        "experience": "Mood detection & Verses",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1757402508749
+      },
+      "mood": {
+        "confidence": 1,
+        "mood": "happy",
+        "timestamp": 1757402515192
+      },
+      "sessionStart": {
+        "timestamp": 1757399726367
+      }
+    },
+    "session_2025-09-09T07-22-07-258Z": {
+      "sessionStart": {
+        "timestamp": 1757402527262
+      }
+    },
+    "session_2025-09-09T22-57-34-729Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": false,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757458854667
+      },
+      "frame2": {
+        "AgeRange": "0-12",
+        "ChurchDuration": "0-1",
+        "FavouriteColor": "Blue",
+        "timestamp": "2025-09-09T23:00:38.642Z"
+      },
+      "frame3": {
+        "FeelingToday": "Peaceful",
+        "FocusToday": "Love & Encouragement",
+        "timestamp": 1757458850763
+      },
+      "frame4": {
+        "experience": "Mood detection & Verses",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1757458852127
+      },
+      "mood": {
+        "confidence": 0.508425235748291,
+        "mood": "angry",
+        "timestamp": 1757458877479
+      },
+      "sessionStart": {
+        "timestamp": 1757458654739
+      }
+    },
+    "session_2025-09-09T23-01-13-374Z": {
+      "sessionStart": {
+        "timestamp": 1757458873377
+      }
+    },
+    "session_2025-09-10T20-36-02-878Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": false,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757536583984
+      },
+      "frame2": {
+        "AgeRange": "0-12",
+        "ChurchDuration": "0-1",
+        "FavouriteColor": "Blue",
+        "timestamp": "2025-09-10T20:36:10.388Z"
+      },
+      "frame3": {
+        "FeelingToday": "Peaceful",
+        "FocusToday": "Peace & Reflection",
+        "timestamp": 1757536573809
+      },
+      "frame4": {
+        "experience": "Mood detection & Verses",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1757536575215
+      },
+      "mood": {
+        "confidence": 1,
+        "mood": "happy",
+        "timestamp": 1757536587491
+      },
+      "sessionStart": {
+        "timestamp": 1757536562889
+      }
+    },
+    "session_2025-09-10T20-36-40-208Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": false,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757538313078
+      },
+      "frame2": {
+        "AgeRange": "0-12",
+        "ChurchDuration": "0-1",
+        "FavouriteColor": "Blue",
+        "timestamp": "2025-09-10T21:05:03.793Z"
+      },
+      "frame3": {
+        "FeelingToday": "Peaceful",
+        "FocusToday": "Peace & Reflection",
+        "timestamp": 1757538309182
+      },
+      "frame4": {
+        "experience": "Mood detection & Verses",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1757538310663
+      },
+      "mood": {
+        "confidence": 1,
+        "mood": "happy",
+        "timestamp": 1757538316403
+      },
+      "sessionStart": {
+        "timestamp": 1757536600209
+      }
+    },
+    "session_2025-09-10T21-05-29-279Z": {
+      "sessionStart": {
+        "timestamp": 1757538329285
+      }
+    },
+    "session_2025-09-11T17-38-46-796Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": false,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757613758684
+      },
+      "frame2": {
+        "AgeRange": "0-12",
+        "ChurchDuration": "1-5",
+        "FavouriteColor": "Orange",
+        "timestamp": "2025-09-11T18:02:27.501Z"
+      },
+      "frame3": {
+        "FeelingToday": "Overwhelmed",
+        "FocusToday": "Love & Encouragement",
+        "timestamp": 1757613750607
+      },
+      "frame4": {
+        "experience": "Mood detection & Verses",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1757613752466
+      },
+      "mood": {
+        "confidence": 0.9200931787490845,
+        "mood": "neutral",
+        "timestamp": 1757613759426
+      },
+      "sessionStart": {
+        "timestamp": 1757612326803
+      }
+    },
+    "session_2025-09-11T18-02-54-615Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": true,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757614901725
+      },
+      "frame2": {
+        "AgeRange": "13-25",
+        "ChurchDuration": "1-5",
+        "FavouriteColor": "Orange",
+        "timestamp": "2025-09-11T18:21:36.160Z"
+      },
+      "frame3": {
+        "FeelingToday": "Grateful",
+        "FocusToday": "Love & Encouragement",
+        "timestamp": 1757614898693
+      },
+      "frame4": {
+        "experience": "Mood detection & Verses",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1757614899676
+      },
+      "mood": {
+        "confidence": 0.6663105476181954,
+        "mood": "neutral",
+        "timestamp": 1757614904232
+      },
+      "sessionStart": {
+        "timestamp": 1757613774616
+      }
+    },
+    "session_2025-09-11T18-21-57-603Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": true,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757616884253
+      },
+      "frame2": {
+        "AgeRange": "13-25",
+        "ChurchDuration": "1-5",
+        "FavouriteColor": "Orange",
+        "timestamp": "2025-09-11T18:54:39.721Z"
+      },
+      "frame3": {
+        "FeelingToday": "Hopeful",
+        "FocusToday": "Worship & Music",
+        "timestamp": 1757616882095
+      },
+      "frame4": {
+        "experience": "Mood detection & Verses",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1757616882754
+      },
+      "mood": {
+        "confidence": 0.7808041671911875,
+        "mood": "neutral",
+        "timestamp": 1757616890245
+      },
+      "sessionStart": {
+        "timestamp": 1757614917604
+      }
+    },
+    "session_2025-09-11T18-55-00-551Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": true,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757617025904
+      },
+      "frame2": {
+        "AgeRange": "13-25",
+        "ChurchDuration": "1-5",
+        "FavouriteColor": "Orange",
+        "timestamp": "2025-09-11T18:57:00.834Z"
+      },
+      "frame3": {
+        "FeelingToday": "Grateful",
+        "FocusToday": "Love & Encouragement",
+        "timestamp": 1757617023501
+      },
+      "frame4": {
+        "experience": "Mood detection & Verses",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1757617024422
+      },
+      "mood": {
+        "confidence": 0.9990591406822205,
+        "mood": "neutral",
+        "timestamp": 1757617031244
+      },
+      "sessionStart": {
+        "timestamp": 1757616900552
+      }
+    },
+    "session_2025-09-11T18-57-21-524Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": true,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757622230896
+      },
+      "frame2": {
+        "AgeRange": "13-25",
+        "ChurchDuration": "1-5",
+        "FavouriteColor": "Orange",
+        "timestamp": "2025-09-11T20:23:34.897Z"
+      },
+      "frame3": {
+        "FeelingToday": "Grateful",
+        "FocusToday": "Nature & Gratitude",
+        "timestamp": 1757622217892
+      },
+      "frame4": {
+        "experience": "Mood detection & Verses",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1757622229080
+      },
+      "mood": {
+        "confidence": 0.9955928126970927,
+        "mood": "neutral",
+        "timestamp": 1757622234054
+      },
+      "sessionStart": {
+        "timestamp": 1757617041529
+      }
+    },
+    "session_2025-09-11T20-24-06-450Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": true,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757622359930
+      },
+      "frame2": {
+        "AgeRange": "13-25",
+        "ChurchDuration": "1-5",
+        "FavouriteColor": "Orange",
+        "timestamp": "2025-09-11T20:25:55.062Z"
+      },
+      "frame3": {
+        "FeelingToday": "Troubled",
+        "FocusToday": "Love & Encouragement",
+        "timestamp": 1757622357777
+      },
+      "frame4": {
+        "experience": "Mood detection & Verses",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1757622358547
+      },
+      "mood": {
+        "confidence": 0.9963650504748026,
+        "mood": "neutral",
+        "timestamp": 1757622366055
+      },
+      "sessionStart": {
+        "timestamp": 1757622246451
+      }
+    },
+    "session_2025-09-11T20-26-15-361Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": true,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757622455277
+      },
+      "frame2": {
+        "AgeRange": "26-50",
+        "ChurchDuration": "1-5",
+        "FavouriteColor": "Pink",
+        "timestamp": "2025-09-11T20:27:30.730Z"
+      },
+      "frame3": {
+        "FeelingToday": "Troubled",
+        "FocusToday": "Love & Encouragement",
+        "timestamp": 1757622453008
+      },
+      "frame4": {
+        "experience": "Mood detection & Verses",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1757622453912
+      },
+      "mood": {
+        "confidence": 0.9993232687314352,
+        "mood": "neutral",
+        "timestamp": 1757622461053
+      },
+      "sessionStart": {
+        "timestamp": 1757622375362
+      }
+    },
+    "session_2025-09-11T20-27-51-416Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": true,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757622584763
+      },
+      "frame2": {
+        "AgeRange": "26-50",
+        "ChurchDuration": "5-10",
+        "FavouriteColor": "Pink",
+        "timestamp": "2025-09-11T20:29:39.313Z"
+      },
+      "frame3": {
+        "FeelingToday": "Grateful",
+        "FocusToday": "Love & Encouragement",
+        "timestamp": 1757622582329
+      },
+      "frame4": {
+        "experience": "Mood detection & Verses",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1757622583145
+      },
+      "mood": {
+        "confidence": 0.9438342452049255,
+        "mood": "neutral",
+        "timestamp": 1757622591054
+      },
+      "sessionStart": {
+        "timestamp": 1757622471417
+      }
+    },
+    "session_2025-09-11T20-30-00-562Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": false,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757622778895
+      },
+      "frame2": {
+        "AgeRange": "26-50",
+        "ChurchDuration": "5-10",
+        "FavouriteColor": "Pink",
+        "timestamp": "2025-09-11T20:32:53.178Z"
+      },
+      "frame3": {
+        "FeelingToday": "Grateful",
+        "FocusToday": "Worship & Music",
+        "timestamp": 1757622775564
+      },
+      "frame4": {
+        "experience": "Mood detection & Verses",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1757622776597
+      },
+      "mood": {
+        "confidence": 0.9764920473098755,
+        "mood": "neutral",
+        "timestamp": 1757622781069
+      },
+      "sessionStart": {
+        "timestamp": 1757622600563
+      }
+    },
+    "session_2025-09-11T20-33-14-427Z": {
+      "sessionStart": {
+        "timestamp": 1757622794428
+      }
+    },
+    "session_2025-09-12T03-39-22-807Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": false,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757648476235
+      },
+      "frame2": {
+        "AgeRange": "0-12",
+        "ChurchDuration": "5-10",
+        "FavouriteColor": "Green",
+        "timestamp": "2025-09-12T03:41:10.055Z"
+      },
+      "frame3": {
+        "FeelingToday": "Grateful",
+        "FocusToday": "Love & Encouragement",
+        "timestamp": 1757648473161
+      },
+      "frame4": {
+        "experience": "Mood detection & Verses",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1757648474302
+      },
+      "mood": {
+        "confidence": 0.9961153566837311,
+        "mood": "neutral",
+        "timestamp": 1757648483902
+      },
+      "sessionStart": {
+        "timestamp": 1757648362810
+      }
+    },
+    "session_2025-09-12T03-41-32-188Z": {
+      "sessionStart": {
+        "timestamp": 1757648492190
+      }
+    },
+    "session_2025-09-14T00-33-45-807Z": {
+      "sessionStart": {
+        "timestamp": 1757810025815
+      }
+    },
+    "session_2025-09-14T00-34-46-726Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": false,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757810131135
+      },
+      "frame2": {
+        "AgeRange": "13-25",
+        "ChurchDuration": "5-10",
+        "FavouriteColor": "Pink",
+        "timestamp": "2025-09-14T00:35:24.803Z"
+      },
+      "frame3": {
+        "FeelingToday": "Grateful",
+        "FocusToday": "Love & Encouragement",
+        "timestamp": 1757810127538
+      },
+      "frame4": {
+        "experience": "Mood detection & Verses",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1757810128169
+      },
+      "mood": {
+        "confidence": 1,
+        "mood": "happy",
+        "timestamp": 1757810139968
+      },
+      "sessionStart": {
+        "timestamp": 1757810086728
+      }
+    },
+    "session_2025-09-14T00-35-47-231Z": {
+      "confirmation": {
+        "claimed": true,
+        "completed": false,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757831348002
+      },
+      "frame2": {
+        "AgeRange": "13-25",
+        "ChurchDuration": "1-5",
+        "FavouriteColor": "Orange",
+        "timestamp": "2025-09-14T06:29:01.937Z"
+      },
+      "frame3": {
+        "FeelingToday": "Grateful",
+        "FocusToday": "Love & Encouragement",
+        "timestamp": 1757831344991
+      },
+      "frame4": {
+        "experience": "Mood detection & Verses",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1757831346102
+      },
+      "mood": {
+        "confidence": 0.9967072606086731,
+        "mood": "neutral",
+        "timestamp": 1757831351767
+      },
+      "sessionStart": {
+        "timestamp": 1757810147232
+      }
+    },
+    "session_2025-09-14T06-29-23-907Z": {
+      "sessionStart": {
+        "timestamp": 1757831363907
+      }
+    },
+    "session_2025-09-14T22-28-40-369Z": {
+      "confirmation": {
+        "claimed": false,
+        "completed": false,
+        "confirmed": true,
+        "ready": true,
+        "timestamp": 1757889362902
+      },
+      "frame2": {
+        "AgeRange": "13-25",
+        "ChurchDuration": "0-1",
+        "FavouriteColor": "Pink",
+        "timestamp": "2025-09-14T22:28:59.614Z"
+      },
+      "frame3": {
+        "FeelingToday": "Overwhelmed",
+        "FocusToday": "Nature & Gratitude",
+        "timestamp": 1757889327692
+      },
+      "frame4": {
+        "experience": "Mood detection & Verses",
+        "experienceId": "-OVVHbKsZKJMF9mrtaxD",
+        "timestamp": 1757889339411
+      },
+      "mood": {
+        "confidence": 1,
+        "mood": "happy",
+        "timestamp": 1757889357020
+      },
+      "sessionStart": {
+        "timestamp": 1757888920373
+      }
+    },
+    "session_2025-09-14T22-36-18-450Z": {
+      "sessionStart": {
+        "timestamp": 1757889378450
+      }
+    }
+  }
+}
