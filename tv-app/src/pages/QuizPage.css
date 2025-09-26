@@ -68,13 +68,15 @@
 /* Green rim for correct answer after submission */
 .option-box.correct {
   border-color: #0f8;
-  background-color: #163e16; /* subtle green background */
+  background-color: #163e16;
+  /* subtle green background */
 }
 
 /* Red rim for wrong answer after submission */
 .option-box.wrong {
   border-color: #ff0000;
-  background-color: #4d1a1a; /* subtle red background */
+  background-color: #4d1a1a;
+  /* subtle red background */
 }
 
 .answer-info {
