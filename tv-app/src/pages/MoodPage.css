@@ -124,6 +124,7 @@
 .avatar-title {
   font-size: 2.5rem;
   margin-bottom: 20px;
+  color: #5a4a03;
 }
 
 .highlight {
@@ -144,4 +145,104 @@
   color: red;
   font-weight: bold;
   margin-top: 10px;
+}
+
+
+.avatar-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff8f0;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.avatar-image {
+  border-radius: 50%;
+  border: 6px solid #f59e0b;
+  /* warm orange */
+  width: 520px;
+  height: 420px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.avatar-info {
+  text-align: center;
+}
+
+.country-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #374151;
+}
+
+.thanksgiving-text {
+  font-size: 1.1rem;
+  color: #92400e;
+  margin-bottom: 8px;
+}
+
+.blessing {
+  font-size: 0.95rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* Bigger flash */
+.big-flash {
+  animation: flashEffect 0.8s ease-in-out;
+  background: white;
+  opacity: 0.9;
+}
+
+@keyframes flashEffect {
+  from {
+    opacity: 0.9;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+/* Animated countdown numbers */
+.animated-count {
+  font-size: 5rem;
+  font-weight: bold;
+  animation: pulse 1s infinite;
+  color: #ff6600;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.4);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Snapshot corner preview */
+.snapshot-preview {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  width: 100px;
+  height: auto;
+  border: 3px solid white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }

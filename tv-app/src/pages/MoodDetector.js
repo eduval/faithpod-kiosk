@@ -19,7 +19,10 @@ export async function loadModels() {
 export const video = document.createElement("video");
 video.setAttribute("playsinline", true);
 video.setAttribute("muted", true);
-video.style.display = "none"; // keep hidden if you want
+video.style.position = "absolute";
+video.style.left = "-9999px";
+video.style.width = "1px";
+video.style.height = "1px";
 document.body.appendChild(video);
 
 // 🔹 Start webcam and wait until it's ready
@@ -51,12 +54,13 @@ export async function startWebcam() {
 }
 
 // 🔹 Capture current frame into canvas
-export function captureFrame(width = 512, height = 512) {
+export function captureFrame(width = 320, height = 240) {
   const canvas = document.createElement("canvas");
   canvas.width = width;
   canvas.height = height;
   const ctx = canvas.getContext("2d");
   ctx.drawImage(video, 0, 0, width, height);
+  document.body.appendChild(canvas); // temporarily see what is being captured
   return canvas;
 }
 
@@ -70,7 +74,7 @@ export async function detectMood(canvas) {
   const detections = await faceapi
     .detectSingleFace(
       canvas,
-      new faceapi.TinyFaceDetectorOptions({ inputSize: 416, scoreThreshold: 0.3 })
+      new faceapi.TinyFaceDetectorOptions({ inputSize: 224, scoreThreshold: 0.3 })
     )
     .withFaceExpressions();
 
@@ -97,7 +101,7 @@ export async function analyzeMood() {
         continue;
       }
 
-      const canvas = captureFrame(512, 512);
+      const canvas = captureFrame(320, 240);
       const expressions = await detectMood(canvas);
 
       if (!expressions) {
