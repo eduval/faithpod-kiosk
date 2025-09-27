@@ -12,6 +12,7 @@ export default function MoodPage({ onFinish }) {
   const [snapshotUrl, setSnapshotUrl] = useState(null); // 👈 keep original photo
   const [error, setError] = useState(null);
   const [country, setCountry] = useState(null);
+  const [avatarId, setAvatarId] = useState(null); // 👈 new state
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -91,6 +92,7 @@ export default function MoodPage({ onFinish }) {
       } else if (data.success && data.url) {
         setAvatarUrl(data.url);
         setCountry(data.country);
+        setAvatarId(data.avatarId || null); // 👈 store sequential ID
       } else {
         setError("Avatar generation unavailable. Using placeholder.");
         setAvatarUrl(PLACEHOLDER_URL);
@@ -145,6 +147,11 @@ export default function MoodPage({ onFinish }) {
 
       {step === "avatar" && (
         <div className="avatar-screen">
+          {/* Avatar ID Badge */}
+          {avatarId && (
+            <div className="avatar-id">#{avatarId}</div>
+          )}
+
           <h2 className="avatar-title">Faith Fellowship Baptist Church</h2>
 
           <div className="avatar-card">
