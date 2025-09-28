@@ -76,7 +76,7 @@ export default function MoodPage({ onFinish }) {
       setStep("preloader");
 
       const response = await fetch(
-        "https://ited.org.ec/faith/generate_avatar_sd1.php",
+        "https://ited.org.ec/faith/generate_avatar_sd.php",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
