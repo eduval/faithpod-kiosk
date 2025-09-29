@@ -5,18 +5,23 @@ import { loadModels, cropFace } from "./faceCrop";
 import { auth, database } from "../firebase";
 import { ref, get, child } from "firebase/database";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate, useLocation } from 'react-router-dom';
 import "./MoodPage.css";
 
 export default function MoodPage({ onFinish }) {
   const [step, setStep] = useState("ready");
-  const [count, setCount] = useState(10);
+  const [count, setCount] = useState(4);
   const [showFlash, setShowFlash] = useState(false);
   const [avatarUrl, setAvatarUrl] = useState(null);
-  const [,setSnapshotUrl] = useState(null);
-  const [,setError] = useState(null);
+  const [, setSnapshotUrl] = useState(null);
+  const [, setError] = useState(null);
   const [country, setCountry] = useState(null);
   const [avatarId, setAvatarId] = useState(null);
   const [bibleVerse, setBibleVerse] = useState(null);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const sessionId = location.state?.sessionId;
 
   const PLACEHOLDER_URL =
     "https://dummyimage.com/512x512/cccccc/000000.png&text=Avatar";
@@ -102,9 +107,14 @@ export default function MoodPage({ onFinish }) {
       }
 
       setStep("avatar");
-
-      // ✅ Fetch Bible verse after avatar
+      //Fetch Bible verse after avatar
       await fetchBibleVerse(detectedMood);
+
+      setTimeout(() => {
+        console.log(sessionId);
+        navigate('/thankyou', { state: { sessionId: sessionId } });
+      }, 10000); // 3 seconds delay
+
     } catch (err) {
       console.error("Avatar generation failed:", err);
       setError("Avatar creation failed. Using placeholder.");
@@ -128,7 +138,7 @@ export default function MoodPage({ onFinish }) {
     }
   }, [count, step, handleCapture]);
 
-  // ✅ Fetch Bible verses from Firebase
+  //Fetch Bible verses from Firebase
   const fetchBibleVerse = async (mood) => {
     try {
       const dbRef = ref(database);
@@ -141,7 +151,7 @@ export default function MoodPage({ onFinish }) {
         );
 
         if (match?.verses) {
-          // ✅ Filter enabled and map to text
+          //Filter enabled and map to text
           const versesArray = Object.values(match.verses)
             .filter((v) => v.enabled)
             .map((v) => v.text);

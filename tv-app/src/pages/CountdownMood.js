@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import "./CountdownMood.css";
 
 const CountdownMood = () => {
-  const [count, setCount] = useState(10);
+  const [count, setCount] = useState(7);
   const navigate = useNavigate();
   const location = useLocation();
   const sessionId = location.state?.sessionId;

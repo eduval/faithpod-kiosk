@@ -21,13 +21,13 @@
 
 .count-overlay {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 6rem;
+  top: 67%;
+  left: 48%;
+  transform: translate(-50%, -50%) scale(1.5);
+  font-size: 8rem !important;
   font-weight: bold;
   color: red;
-  text-shadow: 2px 2px 8px #000;
+  text-shadow: 2px 2px 8px #fffb00;
   z-index: 2;
 }
 
@@ -263,19 +263,25 @@
   border-radius: 12px;
   z-index: 10;
 }
+
 .bible-verse {
-  font-size: 1rem; /* smaller */
-  color: #1f2937; /* dark slate */
-  font-family: 'Dancing Script', cursive; /* cursive font */
+  font-size: 1rem;
+  /* smaller */
+  color: #1f2937;
+  /* dark slate */
+  font-family: 'Dancing Script', cursive;
+  /* cursive font */
   font-style: italic;
   margin-top: 8px;
   text-align: center;
   background: rgba(255, 255, 255, 0.85);
-  padding: 6px 10px; /* slightly smaller padding */
+  padding: 6px 10px;
+  /* slightly smaller padding */
   border-radius: 8px;
   max-width: 90%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
+
 .bible-verse-container {
   position: absolute;
   bottom: 20px;

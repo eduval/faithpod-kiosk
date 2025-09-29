@@ -49,7 +49,7 @@ function QuizPage() {
       if (snapshot.exists()) {
         const data = snapshot.val();
         const allQuestions = Object.values(data);
-        const selectedQuestions = pickRandomQuestions(allQuestions, 2);
+        const selectedQuestions = pickRandomQuestions(allQuestions, 10);
         setQuizQuestions(selectedQuestions);
         sessionStorage.setItem('quizQuestions', JSON.stringify(selectedQuestions));
         setCurrentQuestionIndex(0);
