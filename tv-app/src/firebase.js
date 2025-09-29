@@ -1,7 +1,8 @@
 
 // src/firebase.js
 import { initializeApp } from "firebase/app";
-import { getDatabase } from "firebase/database"; // ✅ ADD THIS LINE
+import { getAuth } from "firebase/auth"; // ✅ import Auth
+import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCnbUwqdNXpX4SWnzvVcgdy6772O9cQzR0",
@@ -14,12 +15,16 @@ const firebaseConfig = {
   measurementId: "G-6S0B3GCQJ9"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// ✅ CREATE AND EXPORT THE DATABASE INSTANCE
-const database = getDatabase(app);
-export { database };
+// ✅ Auth instance
+const auth = getAuth(app);
 
+// ✅ Database instance
+const database = getDatabase(app);
+
+// Get server time
 export async function getServerTime() {
   try {
     const response = await fetch('https://ited.org.ec/getServerTime.php');
@@ -31,4 +36,5 @@ export async function getServerTime() {
   }
 }
 
+export { auth, database };
 export default app;
