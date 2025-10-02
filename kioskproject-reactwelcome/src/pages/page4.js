@@ -8,6 +8,9 @@ import './page4.css';
 const Page4 = () => {
   const [options, setOptions] = useState([]);
   const [selected, setSelected] = useState(null);
+  const [showConsent, setShowConsent] = useState(false);
+  const [pendingItem, setPendingItem] = useState(null);
+
   const history = useHistory();
   const location = useLocation();
 
@@ -30,6 +33,18 @@ const Page4 = () => {
   }, []);
 
   const handleSelect = (item) => {
+    const exp = item.Experience?.toLowerCase() || "";
+
+    if (exp.includes('mood') && exp.includes('verse')) {
+      setPendingItem(item);
+      setShowConsent(true);
+      return; // wait for modal
+    }
+
+    applySelection(item);
+  };
+
+  const applySelection = (item) => {
     setSelected(item.id);
     if (userId && sessionId) {
       const sessionRef = ref(database, `userSessions/${userId}/${sessionId}/frame4`);
@@ -39,6 +54,19 @@ const Page4 = () => {
         timestamp: Date.now(),
       });
     }
+  };
+
+  const handleConsentAgree = () => {
+    if (pendingItem) {
+      applySelection(pendingItem);
+      setPendingItem(null);
+    }
+    setShowConsent(false);
+  };
+
+  const handleConsentCancel = () => {
+    setPendingItem(null);
+    setShowConsent(false);
   };
 
   const handleNext = () => {
@@ -120,6 +148,32 @@ const Page4 = () => {
           <button onClick={handleNext} className="next-btn" disabled={!selected}>Next</button>
         </div>
       </div>
+
+      {showConsent && (
+        <div className="consent-modal-overlay">
+          <div className="consent-modal">
+            <h2>Create Your Thanksgiving Avatar! 🎉</h2>
+            <p>
+              By participating in this activity, you agree to the following:
+            </p>
+            <ul>
+              <li>Your image will be temporarily captured to generate an avatar for recreational purposes.</li>
+              <li>We will not store your face or use your image for commercial purposes.</li>
+              <li>If you are under 18, you must be accompanied by a parent or guardian who provides consent.</li>
+            </ul>
+            <p>
+              By continuing, you give your consent to participate.
+              <br />
+              <strong>For children:</strong> “Children must be accompanied by an adult to participate.”
+            </p>
+
+            <div className="consent-buttons">
+              <button className="agree-btn" onClick={handleConsentAgree}>I Agree </button>
+              <button className="cancel-btn" onClick={handleConsentCancel}>Cancel </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

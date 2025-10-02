@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet';
 import { useHistory, useLocation } from 'react-router-dom';
 import { getAuth } from 'firebase/auth';
 import { getDatabase, ref, set } from 'firebase/database';
-
 import { startWebcam, analyzeMood } from '../moodDetector';
 
 import './start.css';
@@ -58,7 +57,7 @@ const Start = () => {
     setStarted(true);
 
     // Optional: redirect to next page
-    setTimeout(() => history.push('/'), 15000);
+    setTimeout(() => history.push('/'), 7000);
   };
 
   return (
