@@ -1,5 +1,5 @@
 // src/pages/VideoPage.js
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ref, onValue, set } from "firebase/database";
 import { database } from "../firebase";
@@ -12,6 +12,7 @@ const VideoPage = () => {
 
   const [videoList, setVideoList] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const autoPlayed = useRef(false); // prevent multiple auto-selects
 
   // Load videos from Firebase
   useEffect(() => {
@@ -22,6 +23,12 @@ const VideoPage = () => {
       if (data) {
         const enabledVideos = Object.values(data).filter((video) => video.Enable);
         setVideoList(enabledVideos);
+
+        // Automatically select first video ONCE
+        if (enabledVideos.length > 0 && !autoPlayed.current) {
+          autoPlayed.current = true;
+          handleSelectVideo(enabledVideos[0]);
+        }
       }
     });
   }, []);
@@ -56,7 +63,6 @@ const VideoPage = () => {
   useEffect(() => {
     if (!selectedVideo) return;
 
-    // Extract video ID from YouTube URL
     function getYouTubeVideoId(url) {
       try {
         const urlObj = new URL(url);
@@ -77,22 +83,39 @@ const VideoPage = () => {
     const videoId = getYouTubeVideoId(selectedVideo);
     if (!videoId) return;
 
-    // YouTube API callback to create player
     function onYouTubeIframeAPIReady() {
-      new window.YT.Player("youtube-player", {
+      const player = new window.YT.Player("youtube-player", {
         videoId,
+        playerVars: {
+          autoplay: 1,
+          mute: 1,          // <- required for autoplay
+          controls: 1,
+          rel: 0,
+          modestbranding: 1,
+        },
         events: {
+          onReady: (event) => {
+            event.target.playVideo();
+
+            // Request fullscreen on the iframe
+            setTimeout(() => {
+              const iframe = document
+                .getElementById("youtube-player")
+                ?.querySelector("iframe");
+              if (iframe?.requestFullscreen) {
+                iframe.requestFullscreen();
+              }
+            }, 500);
+          },
           onStateChange: (event) => {
             if (event.data === window.YT.PlayerState.ENDED) {
-              setTimeout(() => {
-                console.log(sessionId);
-                navigate('/thankyou', { state: { sessionId: sessionId } });
-              }, 5000); // 3 seconds delay
+              navigate("/thankyou", { state: { sessionId } });
             }
           },
         },
       });
     }
+
 
     if (window.YT && window.YT.Player) {
       onYouTubeIframeAPIReady();
@@ -103,25 +126,26 @@ const VideoPage = () => {
 
   return (
     <div className="video-container">
-      <h1 className="video-title">Pick a Video to Watch</h1>
-
       {!selectedVideo ? (
-        <div className="video-options">
-          {videoList.map((video) => (
-            <button
-              key={video.id}
-              className="video-button"
-              onClick={() => handleSelectVideo(video)}
-            >
-              {video.VideoName}
-            </button>
-          ))}
-        </div>
+        <>
+          <h1 className="video-title">Pick a Video to Watch</h1>
+          <div className="video-options">
+            {videoList.map((video) => (
+              <button
+                key={video.id}
+                className="video-button"
+                onClick={() => handleSelectVideo(video)}
+              >
+                {video.VideoName}
+              </button>
+            ))}
+          </div>
+        </>
       ) : (
         <div className="video-player">
           <div
             id="youtube-player"
-            style={{ width: "90%", height: "500px", margin: "0 auto" }}
+            style={{ width: "100%", height: "100%" }}
           ></div>
         </div>
       )}

@@ -18,16 +18,44 @@ function QuizPage() {
   const location = useLocation();
   const sessionId = location.state?.sessionId;
 
-  // Helper to pick 10 random questions
+  // Shuffle array
+  const shuffleArray = (array) => [...array].sort(() => 0.5 - Math.random());
+
+  // Pick unique questions and shuffle options
   const pickRandomQuestions = (questionsArray, num) => {
-    const shuffled = [...questionsArray].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, num);
+    // 1. Remove duplicates by question ID
+    const uniqueQuestionsMap = {};
+    questionsArray.forEach(q => {
+      uniqueQuestionsMap[q.id] = q;
+    });
+    const uniqueQuestions = Object.values(uniqueQuestionsMap);
+
+    // 2. Shuffle unique questions
+    const shuffled = [...uniqueQuestions].sort(() => 0.5 - Math.random());
+
+    // 3. Pick only the number you need (or all if fewer than num)
+    const selected = shuffled.slice(0, Math.min(num, shuffled.length)).map(q => {
+      // Shuffle options too
+      const allOptions = shuffleArray([...q.options]);
+      const correctAnswerText = Array.isArray(q.correct_answers)
+        ? q.correct_answers[0]
+        : typeof q.correct_answers === 'object'
+          ? Object.values(q.correct_answers)[0]
+          : q.correct_answers;
+
+      return {
+        ...q,
+        options: allOptions,
+        correctAnswerText
+      };
+    });
+
+    return selected;
   };
 
-  const fetchQuestions = useCallback(async () => {
-    // Try to get questions from sessionStorage first
-    const storedQuestions = sessionStorage.getItem('quizQuestions');
 
+  const fetchQuestions = useCallback(async () => {
+    const storedQuestions = sessionStorage.getItem('quizQuestions');
     if (storedQuestions) {
       setQuizQuestions(JSON.parse(storedQuestions));
       setCurrentQuestionIndex(0);
@@ -52,14 +80,6 @@ function QuizPage() {
         const selectedQuestions = pickRandomQuestions(allQuestions, 10);
         setQuizQuestions(selectedQuestions);
         sessionStorage.setItem('quizQuestions', JSON.stringify(selectedQuestions));
-        setCurrentQuestionIndex(0);
-        setSelectedAnswer(null);
-        setShowAnswerInfo(false);
-        setIsCorrect(false);
-        setTimeLeft(10);
-        setScore(0);
-        setIsTimeUp(false);
-        setHasSubmittedResults(false);
       } else {
         console.log('No questions found');
       }
@@ -68,29 +88,18 @@ function QuizPage() {
     }
   }, []);
 
-  useEffect(() => {
-    fetchQuestions();
-  }, [fetchQuestions]);
+  useEffect(() => { fetchQuestions(); }, [fetchQuestions]);
 
   const handleAnswerSelect = (answer) => {
     if (selectedAnswer || isTimeUp) return;
 
     setSelectedAnswer(answer);
+    const current = quizQuestions[currentQuestionIndex];
+    const isCorrectAnswer = answer === current.correctAnswerText;
 
-    const correctObj = quizQuestions[currentQuestionIndex].correct_answers;
-    const correctAnswer = Array.isArray(correctObj)
-      ? correctObj[0]
-      : typeof correctObj === 'object'
-        ? Object.values(correctObj)[0]
-        : correctObj;
-
-    const isCorrectAnswer = answer === correctAnswer;
     setIsCorrect(isCorrectAnswer);
     setShowAnswerInfo(true);
-
-    if (isCorrectAnswer) {
-      setScore((prev) => prev + 1);
-    }
+    if (isCorrectAnswer) setScore(prev => prev + 1);
   };
 
   const handleNextQuestion = useCallback(() => {
@@ -105,25 +114,21 @@ function QuizPage() {
       setCurrentQuestionIndex(nextIndex);
     } else if (!hasSubmittedResults) {
       setHasSubmittedResults(true);
-
-      // Clear sessionStorage so next session can get new questions
       sessionStorage.removeItem('quizQuestions');
-
       const total = quizQuestions.length;
       navigate('/quiz-result', { state: { score, total } });
 
       setTimeout(() => {
-        console.log(sessionId);
         navigate('/thankyou', { state: { sessionId: sessionId } });
-      }, 5000); // 3 seconds delay
+      }, 5000);
     }
-  }, [currentQuestionIndex, quizQuestions.length, navigate, score, hasSubmittedResults]);
+  }, [currentQuestionIndex, quizQuestions.length, navigate, score, hasSubmittedResults, sessionId]);
 
+  // Countdown timer
   useEffect(() => {
     if (selectedAnswer || showAnswerInfo) return;
-
     const timer = setInterval(() => {
-      setTimeLeft((prev) => {
+      setTimeLeft(prev => {
         if (prev === 1) {
           setIsTimeUp(true);
           setShowAnswerInfo(true);
@@ -132,18 +137,20 @@ function QuizPage() {
         return prev - 1;
       });
     }, 1000);
-
     return () => clearInterval(timer);
   }, [selectedAnswer, showAnswerInfo]);
 
-  if (quizQuestions.length === 0) {
-    return <div className="loading">Loading questions...</div>;
-  }
+  // Auto next question after 3s
+  useEffect(() => {
+    if (showAnswerInfo) {
+      const timeout = setTimeout(handleNextQuestion, 3000);
+      return () => clearTimeout(timeout);
+    }
+  }, [showAnswerInfo, handleNextQuestion]);
 
-  const currentQuestion = quizQuestions[currentQuestionIndex];
-  const correctAnswer = Array.isArray(currentQuestion.correct_answers)
-    ? currentQuestion.correct_answers[0]
-    : currentQuestion.correct_answers;
+  if (quizQuestions.length === 0) return <div className="loading">Loading questions...</div>;
+
+  const current = quizQuestions[currentQuestionIndex];
 
   return (
     <div className="quiz-container">
@@ -151,12 +158,11 @@ function QuizPage() {
       <div className="question-text">
         Question {currentQuestionIndex + 1} / {quizQuestions.length}
       </div>
-      <div className="question-title">{currentQuestion.question}</div>
+      <div className="question-title">{current.question}</div>
       <div className="options-boxes">
-        {currentQuestion.options.map((option, index) => {
+        {current.options.map((option, idx) => {
           const isSelected = selectedAnswer === option;
-          const isCorrectAnswer = option === correctAnswer;
-
+          const isCorrectAnswer = option === current.correctAnswerText;
           let className = 'option-box';
           if (!showAnswerInfo && isSelected) className += ' selected';
           if (showAnswerInfo) {
@@ -166,7 +172,7 @@ function QuizPage() {
 
           return (
             <button
-              key={index}
+              key={idx}
               className={className}
               onClick={() => handleAnswerSelect(option)}
               disabled={!!selectedAnswer || isTimeUp}
@@ -182,21 +188,14 @@ function QuizPage() {
       {showAnswerInfo && (
         <div className="answer-info">
           <p>
-            {isTimeUp
-              ? "Time's up! The correct answer is:"
-              : isCorrect
-                ? 'Correct!'
-                : 'Wrong!'}
+            {isTimeUp ? "Time's up! The correct answer is:" : isCorrect ? 'Correct!' : 'Wrong!'}
             <br />
-            <strong>Answer:</strong> {currentQuestion.correct_answers}
+            <strong>Answer:</strong> {current.correctAnswerText}
           </p>
           <p className="reference">
-            <strong>Reference:</strong> {currentQuestion.reference} <br />
-            <strong>Testament:</strong> {currentQuestion.testament}
+            <strong>Reference:</strong> {current.reference} <br />
+            <strong>Testament:</strong> {current.testament}
           </p>
-          <button className="next-button" onClick={handleNextQuestion}>
-            Next
-          </button>
         </div>
       )}
     </div>

@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import "./CountdownPageVideo.css";
 
 const CountdownPage = () => {
-  const [count, setCount] = useState(5);
+  const [count, setCount] = useState(7);
   const navigate = useNavigate();
   const location = useLocation();
   const sessionId = location.state?.sessionId;
@@ -25,7 +25,7 @@ const CountdownPage = () => {
 
   return (
     <div className="countdown-container">
-      <h1 className="countdown-title">Welcome to the<br /> <span>Video knowledge</span></h1>
+      <h1 className="countdown-title">Welcome to the<br /> <span>Faith Church</span></h1>
       <p className="countdown-subtitle">Learn more about the Faith and the Faith's Church!!</p>
       <p className="countdown-ready">Are you ready?<br />The video is going to start in...</p>
       <div className="countdown-number">{String(count).padStart(2, "0")}</div>

@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import "./CountdownPage.css";
 
 const CountdownPage = () => {
-  const [count, setCount] = useState(5);
+  const [count, setCount] = useState(7);
   const navigate = useNavigate();
   const location = useLocation();
   const sessionId = location.state?.sessionId;
