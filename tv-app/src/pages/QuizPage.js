@@ -9,7 +9,7 @@ function QuizPage() {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showAnswerInfo, setShowAnswerInfo] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(10);
+  const [timeLeft, setTimeLeft] = useState(25);
   const [score, setScore] = useState(0);
   const [isTimeUp, setIsTimeUp] = useState(false);
   const [hasSubmittedResults, setHasSubmittedResults] = useState(false);
@@ -143,7 +143,7 @@ function QuizPage() {
   // Auto next question after 3s
   useEffect(() => {
     if (showAnswerInfo) {
-      const timeout = setTimeout(handleNextQuestion, 3000);
+      const timeout = setTimeout(handleNextQuestion, 5000);
       return () => clearTimeout(timeout);
     }
   }, [showAnswerInfo, handleNextQuestion]);
