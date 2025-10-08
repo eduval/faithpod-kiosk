@@ -1,0 +1,63 @@
+/* src/pages/LevelSelectPage.css */
+.level-container {
+    background-color: #1c1c1c;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    padding: 2rem;
+}
+
+.level-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #00bfff;
+}
+
+.level-subtitle {
+    font-size: 1.3rem;
+    color: #ccc;
+    margin-bottom: 3rem;
+}
+
+.level-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.level-button {
+    min-width: 320px;
+    min-height: 200px;
+    padding: 1.5rem 2rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    color: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.level-button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.4);
+}
+
+.level-button.beginner {
+    background: linear-gradient(135deg, #32cd32, #228b22);
+}
+
+.level-button.medium {
+    background: linear-gradient(135deg, #00bfff, #1e90ff);
+}
+
+.level-button.advanced {
+    background: linear-gradient(135deg, #ff4500, #ff6347);
+}

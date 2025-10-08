@@ -14,7 +14,7 @@ const CountdownPage = () => {
       setCount(prev => {
         if (prev === 1) {
           clearInterval(timer);
-          setTimeout(() => navigate("/quiz", { state: { sessionId: sessionId } }), 1000); // wait a sec before routing
+          setTimeout(() => navigate("/level-select", { state: { sessionId: sessionId } }), 1000); // wait a sec before routing
         }
         return prev - 1;
       });

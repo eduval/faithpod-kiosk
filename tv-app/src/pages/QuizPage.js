@@ -9,14 +9,18 @@ function QuizPage() {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showAnswerInfo, setShowAnswerInfo] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(25);
+  const [timeLeft, setTimeLeft] = useState(30);
   const [score, setScore] = useState(0);
   const [isTimeUp, setIsTimeUp] = useState(false);
   const [hasSubmittedResults, setHasSubmittedResults] = useState(false);
 
+
   const navigate = useNavigate();
   const location = useLocation();
   const sessionId = location.state?.sessionId;
+
+  const level = location.state?.level || "medium";
+  console.log("Selected level:", level);
 
   // Shuffle array
   const shuffleArray = (array) => [...array].sort(() => 0.5 - Math.random());
@@ -56,37 +60,57 @@ function QuizPage() {
 
   const fetchQuestions = useCallback(async () => {
     const storedQuestions = sessionStorage.getItem('quizQuestions');
-    if (storedQuestions) {
+    const storedLevel = sessionStorage.getItem('quizLevel');
+
+    // ✅ If we already have questions for this same level, reuse them
+    if (storedQuestions && storedLevel === level) {
       setQuizQuestions(JSON.parse(storedQuestions));
       setCurrentQuestionIndex(0);
       setSelectedAnswer(null);
       setShowAnswerInfo(false);
       setIsCorrect(false);
-      setTimeLeft(10);
+      setTimeLeft(30);
       setScore(0);
       setIsTimeUp(false);
       setHasSubmittedResults(false);
       return;
+    } else {
+      // Clear previous session data if different level
+      sessionStorage.removeItem('quizQuestions');
+      sessionStorage.removeItem('quizLevel');
     }
 
     const db = getDatabase();
     const dbRef = ref(db);
 
     try {
-      const snapshot = await get(child(dbRef, 'bible_questions'));
+      const snapshot = await get(child(dbRef, "bible_questions"));
       if (snapshot.exists()) {
         const data = snapshot.val();
         const allQuestions = Object.values(data);
-        const selectedQuestions = pickRandomQuestions(allQuestions, 10);
+
+        // ✅ Filter questions by the chosen level (case-insensitive)
+        const filteredByLevel = allQuestions.filter(
+          (q) => q.level?.toLowerCase() === level?.toLowerCase()
+        );
+
+        // ✅ If no questions match that level, fallback to all
+        const baseArray =
+          filteredByLevel.length > 0 ? filteredByLevel : allQuestions;
+
+        const selectedQuestions = pickRandomQuestions(baseArray, 10);
+
         setQuizQuestions(selectedQuestions);
-        sessionStorage.setItem('quizQuestions', JSON.stringify(selectedQuestions));
+        sessionStorage.setItem("quizQuestions", JSON.stringify(selectedQuestions));
+        sessionStorage.setItem("quizLevel", level);
       } else {
-        console.log('No questions found');
+        console.log("No questions found");
       }
     } catch (error) {
-      console.error('Error fetching questions:', error);
+      console.error("Error fetching questions:", error);
     }
-  }, []);
+  }, [level]);
+
 
   useEffect(() => { fetchQuestions(); }, [fetchQuestions]);
 
@@ -105,7 +129,7 @@ function QuizPage() {
   const handleNextQuestion = useCallback(() => {
     setShowAnswerInfo(false);
     setSelectedAnswer(null);
-    setTimeLeft(10);
+    setTimeLeft(30);
     setIsTimeUp(false);
 
     const nextIndex = currentQuestionIndex + 1;
@@ -120,7 +144,7 @@ function QuizPage() {
 
       setTimeout(() => {
         navigate('/thankyou', { state: { sessionId: sessionId } });
-      }, 5000);
+      }, 7000);
     }
   }, [currentQuestionIndex, quizQuestions.length, navigate, score, hasSubmittedResults, sessionId]);
 
@@ -143,7 +167,7 @@ function QuizPage() {
   // Auto next question after 3s
   useEffect(() => {
     if (showAnswerInfo) {
-      const timeout = setTimeout(handleNextQuestion, 5000);
+      const timeout = setTimeout(handleNextQuestion, 7000);
       return () => clearTimeout(timeout);
     }
   }, [showAnswerInfo, handleNextQuestion]);
