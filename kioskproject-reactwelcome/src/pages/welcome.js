@@ -65,7 +65,7 @@ const Welcome = () => {
               “A space for everyone to smile, reflect, and grow in faith"
             </span>
             <div className="welcome-frame9" onClick={handleBeginClick}>
-              <span className="welcome-text2">Begin</span>
+              <span className="welcome-text2">Begin now</span>
             </div>
           </div>
         </div>

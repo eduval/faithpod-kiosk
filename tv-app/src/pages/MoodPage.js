@@ -113,7 +113,7 @@ export default function MoodPage({ onFinish }) {
       setTimeout(() => {
         console.log(sessionId);
         navigate('/thankyou', { state: { sessionId: sessionId } });
-      }, 10000); // 3 seconds delay
+      }, 20000); // 3 seconds delay
 
     } catch (err) {
       console.error("Avatar generation failed:", err);

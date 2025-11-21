@@ -40,7 +40,7 @@ const verses = [
 ];
 
 const welcomeMessages = [
-  "WELCOME",
+  "CCTB",
   "STARTING SOON",
   "SIT DOWN",
   "GET READY",
